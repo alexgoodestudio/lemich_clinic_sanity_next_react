@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@portabletext/react": "^4.0.3",
     "@sanity/client": "^6.15.0",
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.11.0",
