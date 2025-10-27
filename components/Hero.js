@@ -58,7 +58,7 @@ export default function Hero() {
       })
     }
 
-    const interval = setInterval(slideAnimation, 6000)
+    const interval = setInterval(slideAnimation, 5500)
     return () => clearInterval(interval)
   }, [])
 
@@ -72,7 +72,7 @@ export default function Hero() {
         <div className="col-lg-5 p-5">
           <div className="d-flex align-items-start mb-3">
             <div>
-              <p className="text-4xl mb-0 font-extrabold">
+              <p className="text-4xl tomorrow mb-0 font-extrabold">
                 Home of Military Mental Health
               </p>
             </div>

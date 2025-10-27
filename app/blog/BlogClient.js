@@ -1,5 +1,7 @@
 'use client';
-
+import Nav from '../../components/Nav';
+import Footer from '@/components/Footer';
+import Banner from '@/components/Banner';
 import { useRef, useEffect } from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
@@ -52,6 +54,8 @@ export default function BlogClient({ blogPosts }) {
 
   return (
     <div ref={containerRef} className="bg-slate-50 min-vh-100">
+
+        <Nav/>
       <div className="container py-5">
         
         {/* Breadcrumb Navigation */}
@@ -161,6 +165,8 @@ export default function BlogClient({ blogPosts }) {
         </div>
 
       </div>
+      <Banner/>
+      <Footer/>
     </div>
   );
 }

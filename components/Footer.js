@@ -1,29 +1,8 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function Footer() {
-  const [isVisible, setIsVisible] = useState(false)
-  const footerRef = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    if (footerRef.current) {
-      observer.observe(footerRef.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
-
   const footerModules = {
     brand: {
       title: "The Lemich Clinic",
@@ -58,27 +37,18 @@ export default function Footer() {
     }
   }
 
-  const LinkItem = ({ item, delay = 0 }) => (
+  const LinkItem = ({ item }) => (
     <Link
       href={item.href}
-      className={`footer-link block transition-all duration-300 ease-out transform hover:translate-x-1 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`}
-      style={{ 
-        transitionDelay: `${delay}ms`,
-        animationDelay: `${delay}ms`
-      }}
+      className="footer-link block transition-all duration-300 ease-out hover:translate-x-1"
       {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {item.label}
     </Link>
   )
 
-  const FooterModule = ({ title, delay = 0, children }) => (
-    <div className={`footer-module transition-all duration-700 ease-out ${
-      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-    }`}
-    style={{ transitionDelay: `${delay}ms` }}>
+  const FooterModule = ({ title, children }) => (
+    <div className="footer-module">
       <h4 className="footer-heading">{title}</h4>
       <div className="footer-content">
         {children}
@@ -222,7 +192,6 @@ export default function Footer() {
           background: linear-gradient(90deg, #3b82f6, transparent);
           opacity: 0;
           transition: all 0.6s ease;
-          transition-delay: 0.8s;
         }
         
         .footer-module:hover::before {
@@ -246,67 +215,44 @@ export default function Footer() {
         }
       `}</style>
 
-      <footer ref={footerRef} className="footer-container">
+      <footer className="footer-container">
         <div className="footer-inner">
           <div className="footer-grid">
             {/* Brand Module */}
-            <div className={`footer-module transition-all duration-700 ease-out ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-            style={{ transitionDelay: '0ms' }}>
-              <div className={`transition-all duration-700 ease-out ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}>
-                <h3 className="brand-title">{footerModules.brand.title}</h3>
-                <div className="brand-subtitle">Military Mental Health</div>
-                <p className="brand-description">{footerModules.brand.description}</p>
-                <div className="brand-location">{footerModules.brand.location}</div>
-              </div>
+            <div className="footer-module">
+              <h3 className="brand-title">{footerModules.brand.title}</h3>
+              <div className="brand-subtitle">Military Mental Health</div>
+              <p className="brand-description">{footerModules.brand.description}</p>
+              <div className="brand-location">{footerModules.brand.location}</div>
             </div>
 
             {/* Services Module */}
-            <FooterModule title={footerModules.services.title} delay={100}>
-              {footerModules.services.links.map((item, index) => (
-                <LinkItem 
-                  key={item.label} 
-                  item={item} 
-                  delay={200 + index * 100} 
-                />
+            <FooterModule title={footerModules.services.title}>
+              {footerModules.services.links.map((item) => (
+                <LinkItem key={item.label} item={item} />
               ))}
             </FooterModule>
 
             {/* About Module */}
-            <FooterModule title={footerModules.about.title} delay={200}>
-              {footerModules.about.links.map((item, index) => (
-                <LinkItem 
-                  key={item.label} 
-                  item={item} 
-                  delay={300 + index * 100} 
-                />
+            <FooterModule title={footerModules.about.title}>
+              {footerModules.about.links.map((item) => (
+                <LinkItem key={item.label} item={item} />
               ))}
             </FooterModule>
 
             {/* Contact Module */}
-            <FooterModule title={footerModules.contact.title} delay={300}>
-              {footerModules.contact.links.map((item, index) => (
-                <LinkItem 
-                  key={item.label} 
-                  item={item} 
-                  delay={400 + index * 100} 
-                />
+            <FooterModule title={footerModules.contact.title}>
+              {footerModules.contact.links.map((item) => (
+                <LinkItem key={item.label} item={item} />
               ))}
             </FooterModule>
           </div>
 
           {/* Divider */}
-          <div className={`footer-divider transition-all duration-1000 ease-out ${
-            isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
-          }`} style={{ transitionDelay: '600ms' }} />
+          <div className="footer-divider" />
 
           {/* Footer bottom */}
-          <div className={`footer-bottom transition-all duration-700 ease-out ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`} style={{ transitionDelay: '800ms' }}>
+          <div className="footer-bottom">
             © {new Date().getFullYear()} The Lemich Clinic. Military mental health specialists.
           </div>
         </div>

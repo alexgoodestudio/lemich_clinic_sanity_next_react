@@ -102,7 +102,7 @@ export default function Nav() {
         <div className="bg-slate-200 text-slate-900 text-sm text-center p-2">
           <p className="mb-0">Dedicated to the Mental Health of Norfolk&apos;s Military Community <Link href="/services" className="underline font-semibold"> Learn More</Link></p>
         </div>
-        <div className="container-fluid px-4 px-lg-5">
+        <div className="container-fluid px-4 bg-slate-50 px-lg-5">
           <div className="row align-items-center py-3">
             
             {/* Logo Section */}
