@@ -54,8 +54,7 @@ export default function BlogClient({ blogPosts }) {
 
   return (
     <div ref={containerRef} className="bg-slate-50 min-vh-100">
-
-        <Nav/>
+      <Nav/>
       <div className="container py-5">
         
         {/* Breadcrumb Navigation */}
@@ -93,68 +92,73 @@ export default function BlogClient({ blogPosts }) {
         {/* Blog Posts Grid */}
         <div className="row g-4">
           {blogPosts && blogPosts.length > 0 ? (
-            blogPosts.map((post, index) => (
-              <div 
-                key={post._id} 
-                className="col-12"
-                ref={el => postsRef.current[index] = el}
-              >
-                <article className="bg-white rounded overflow-hidden blog-post-card">
-                  <div className="row g-0">
-                    
-                    {/* Content Side */}
-                    <div className="col-lg-12 p-5">
+            blogPosts.map((post, index) => {
+              // Use date if available, otherwise fall back to _createdAt
+              const displayDate = post.date || post._createdAt;
+              
+              return (
+                <div 
+                  key={post._id} 
+                  className="col-12"
+                  ref={el => postsRef.current[index] = el}
+                >
+                  <article className="bg-white rounded overflow-hidden blog-post-card">
+                    <div className="row g-0">
                       
-                      {/* Metadata */}
-                      <div className="d-flex align-items-center gap-4 mb-3">
-                        <div className="d-flex align-items-center gap-2">
-                          <Calendar size={14} className="text-slate-400" />
-                          <time 
-                            dateTime={post.date}
-                            className="text-sm text-slate-500"
-                          >
-                            {new Date(post.date).toLocaleDateString('en-US', { 
-                              year: 'numeric', 
-                              month: 'long', 
-                              day: 'numeric' 
-                            })}
-                          </time>
+                      {/* Content Side */}
+                      <div className="col-lg-12 p-5">
+                        
+                        {/* Metadata */}
+                        <div className="d-flex align-items-center gap-4 mb-3">
+                          <div className="d-flex align-items-center gap-2">
+                            <Calendar size={14} className="text-slate-400" />
+                            <time 
+                              dateTime={displayDate}
+                              className="text-sm text-slate-500"
+                            >
+                              {displayDate ? new Date(displayDate).toLocaleDateString('en-US', { 
+                                year: 'numeric', 
+                                month: 'long', 
+                                day: 'numeric' 
+                              }) : 'Date not available'}
+                            </time>
+                          </div>
+                          <div className="d-flex align-items-center gap-2">
+                            <User size={14} className="text-slate-400" />
+                            <span className="text-sm text-slate-500">{post.author}</span>
+                          </div>
                         </div>
-                        <div className="d-flex align-items-center gap-2">
-                          <User size={14} className="text-slate-400" />
-                          <span className="text-sm text-slate-500">{post.author}</span>
-                        </div>
-                      </div>
 
-                      {/* Title */}
-                      <h2 className="text-3xl text-slate-900 fw-semibold mb-3">
+                        {/* Title */}
+                        <h2 className="text-3xl text-slate-900 fw-semibold mb-3">
+                          <Link 
+                            href={`/blog/${post.slug}`}
+                            className="text-decoration-none text-slate-900 blog-title-link"
+                          >
+                            {post.title}
+                          </Link>
+                        </h2>
+
+                        {/* Description */}
+                        <p className="text-md text-slate-600 mb-4">
+                          {post.description}
+                        </p>
+
+                        {/* Read More Link */}
                         <Link 
                           href={`/blog/${post.slug}`}
-                          className="text-decoration-none text-slate-900 blog-title-link"
+                          className="d-inline-flex align-items-center gap-2 text-slate-900 text-sm fw-semibold text-decoration-none blog-read-more"
                         >
-                          {post.title}
+                          <span>Read Article</span>
+                          <ArrowRight size={16} className="blog-arrow" />
                         </Link>
-                      </h2>
 
-                      {/* Description */}
-                      <p className="text-md text-slate-600 mb-4">
-                        {post.description}
-                      </p>
-
-                      {/* Read More Link */}
-                      <Link 
-                        href={`/blog/${post.slug}`}
-                        className="d-inline-flex align-items-center gap-2 text-slate-900 text-sm fw-semibold text-decoration-none blog-read-more"
-                      >
-                        <span>Read Article</span>
-                        <ArrowRight size={16} className="blog-arrow" />
-                      </Link>
-
+                      </div>
                     </div>
-                  </div>
-                </article>
-              </div>
-            ))
+                  </article>
+                </div>
+              );
+            })
           ) : (
             <div className="col-12">
               <div className="bg-white rounded p-5 text-center">

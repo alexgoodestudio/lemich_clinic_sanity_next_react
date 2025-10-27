@@ -1,6 +1,7 @@
 import { client } from '@/sanity/lib/client';
 import BlogClient from './BlogClient';
 
+
 async function getBlogPosts() {
   try {
 const posts = await client.fetch(
