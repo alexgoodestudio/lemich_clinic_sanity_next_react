@@ -48,32 +48,34 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Get form data
-    const form = e.target;
-    const data = new FormData(form);
-    
-    // Submit to Netlify
-    fetch('/', {
-      method: 'POST',
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(data).toString()
-    })
-    .then(() => {
-      setTimeout(() => {
-        setSubmitted(true);
-        gsap.fromTo(".success-message", 
-          { scale: 0.9, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }
-        );
-      }, 800);
-    })
-    .catch((error) => {
+    try {
+      const formElement = e.target;
+      const data = new FormData(formElement);
+      
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data).toString()
+      });
+
+      if (response.ok) {
+        setTimeout(() => {
+          setSubmitted(true);
+          gsap.fromTo(".success-message", 
+            { scale: 0.9, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }
+          );
+        }, 800);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
       alert('Error submitting form. Please try again.');
       console.error(error);
-    });
+    }
   };
 
   const resetForm = () => {
@@ -110,15 +112,12 @@ export default function Contact() {
                 <div className="col-12 col-lg-8">
                   {!submitted ? (
                     <form 
-                      name="contact" 
-                      method="POST" 
-                      data-netlify="true"
-                      data-netlify-honeypot="bot-field"
+                      name="contact"
+                      method="POST"
                       onSubmit={handleSubmit}
                       ref={formRef} 
                       className="space-y-4"
                     >
-                      {/* Hidden fields for Netlify */}
                       <input type="hidden" name="form-name" value="contact" />
                       <p style={{ display: 'none' }}>
                         <label>
