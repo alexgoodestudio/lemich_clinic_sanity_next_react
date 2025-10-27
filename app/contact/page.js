@@ -51,13 +51,29 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    setTimeout(() => {
-      setSubmitted(true);
-      gsap.fromTo(".success-message", 
-        { scale: 0.9, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }
-      );
-    }, 800);
+    // Get form data
+    const form = e.target;
+    const data = new FormData(form);
+    
+    // Submit to Netlify
+    fetch('/', {
+      method: 'POST',
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => {
+      setTimeout(() => {
+        setSubmitted(true);
+        gsap.fromTo(".success-message", 
+          { scale: 0.9, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }
+        );
+      }, 800);
+    })
+    .catch((error) => {
+      alert('Error submitting form. Please try again.');
+      console.error(error);
+    });
   };
 
   const resetForm = () => {
@@ -93,7 +109,22 @@ export default function Contact() {
                 {/* Contact Form */}
                 <div className="col-12 col-lg-8">
                   {!submitted ? (
-                    <div ref={formRef} className="space-y-4">
+                    <form 
+                      name="contact" 
+                      method="POST" 
+                      data-netlify="true"
+                      data-netlify-honeypot="bot-field"
+                      onSubmit={handleSubmit}
+                      ref={formRef} 
+                      className="space-y-4"
+                    >
+                      {/* Hidden fields for Netlify */}
+                      <input type="hidden" name="form-name" value="contact" />
+                      <p style={{ display: 'none' }}>
+                        <label>
+                          Don't fill this out if you're human: <input name="bot-field" />
+                        </label>
+                      </p>
                       
                       {/* Name & Email Row */}
                       <div className="row g-4 mb-4">
@@ -206,7 +237,7 @@ export default function Contact() {
 
                       {/* Submit Button */}
                       <button
-                        onClick={handleSubmit}
+                        type="submit"
                         className="btn bg-slate-900 text-white border-0 px-5 py-3 rounded-0 shadow-sm hover-lift"
                         style={{ 
                           fontSize: '0.875rem', 
@@ -217,7 +248,7 @@ export default function Contact() {
                         Send Confidential Message
                       </button>
                       
-                    </div>
+                    </form>
                   ) : (
                     <div className="success-message bg-white p-5 shadow-sm">
                       <div className="text-center py-5">
