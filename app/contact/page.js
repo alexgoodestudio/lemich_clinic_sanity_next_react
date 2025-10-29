@@ -1,8 +1,6 @@
 'use client'
 
-import { useState, useRef } from "react";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
+import { useState } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
@@ -16,30 +14,6 @@ export default function Contact() {
     location: '',
     message: ''
   });
-
-  const containerRef = useRef();
-  const formRef = useRef();
-  const headingRef = useRef();
-  const detailsRef = useRef();
-
-  useGSAP(() => {
-    const tl = gsap.timeline();
-    
-    tl.fromTo(headingRef.current, 
-      { y: 30, opacity: 0 }, 
-      { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
-    )
-    .fromTo(detailsRef.current,
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
-      "-=0.4"
-    )
-    .fromTo(formRef.current.children,
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.5, ease: "power2.out", stagger: 0.1 },
-      "-=0.3"
-    );
-  }, { scope: containerRef });
 
   const handleInputChange = (e) => {
     setFormData({
@@ -62,13 +36,7 @@ export default function Contact() {
       });
 
       if (response.ok) {
-        setTimeout(() => {
-          setSubmitted(true);
-          gsap.fromTo(".success-message", 
-            { scale: 0.9, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }
-          );
-        }, 800);
+        setSubmitted(true);
       } else {
         throw new Error('Form submission failed');
       }
@@ -86,7 +54,7 @@ export default function Contact() {
   return (
     <>
       <Nav />
-      <div className="bg-stone-50 min-h-screen py-5" ref={containerRef}>
+      <div className="bg-stone-50 min-h-screen py-5">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-12 col-lg-10">
@@ -94,7 +62,7 @@ export default function Contact() {
               {/* Header Section */}
               <div className="row mb-5">
                 <div className="col-12 col-md-9">
-                  <div ref={headingRef}>
+                  <div>
                     <h1 className="text-6xl text-slate-900 font-light mb-4 tracking-tight">
                       Get In Touch
                     </h1>
@@ -114,8 +82,9 @@ export default function Contact() {
                     <form 
                       name="contact"
                       method="POST"
+                      data-netlify="true"
+                      data-netlify-honeypot="bot-field"
                       onSubmit={handleSubmit}
-                      ref={formRef} 
                       className="space-y-4"
                     >
                       <input type="hidden" name="form-name" value="contact" />
@@ -296,7 +265,7 @@ export default function Contact() {
                 </div>
 
                 {/* Contact Details Sidebar */}
-                <div className="col-12 col-lg-4" ref={detailsRef}>
+                <div className="col-12 col-lg-4">
                   <div className="bg-white p-5 shadow-sm h-fit mb-4">
                     
                     {/* Who We Serve */}
