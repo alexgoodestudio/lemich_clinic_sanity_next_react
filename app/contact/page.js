@@ -10,24 +10,29 @@ function ContactForm() {
   const isSuccess = searchParams.get('success') === 'true';
   const formRef = useRef(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = formRef.current;
-    const formData = new FormData(form);
-    
-    fetch('/', {
-      method: 'POST',
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(() => {
-      window.location.href = '/contact?success=true';
-    })
-    .catch((error) => {
-      alert('Error submitting form. Please try again.');
-      console.error(error);
-    });
-  };
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const form = formRef.current;
+  const formData = new FormData(form);
+  
+  // Ensure form-name is in the FormData
+  if (!formData.has('form-name')) {
+    formData.append('form-name', 'contact');
+  }
+  
+  fetch('/', {
+    method: 'POST',
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString()
+  })
+  .then(() => {
+    window.location.href = '/contact?success=true';
+  })
+  .catch((error) => {
+    alert('Error submitting form. Please try again.');
+    console.error(error);
+  });
+};
 
   if (isSuccess) {
     return (
