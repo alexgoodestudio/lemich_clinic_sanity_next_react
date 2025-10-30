@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Contact Form</title>
+  <meta charset="UTF-8">
+  <title>Netlify Forms Detection</title>
 </head>
 <body>
-  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+  <!-- This file is for Netlify's build-time form detection ONLY -->
+  <!-- Users will NEVER see this page -->
+  
+  <form 
+    name="contact" 
+    data-netlify="true" 
+    netlify-honeypot="bot-field"
+    hidden
+  >
+    <!-- Honeypot field for spam prevention -->
+    <input type="hidden" name="bot-field" />
+    
+    <!-- Form name field (REQUIRED) -->
+    <input type="hidden" name="form-name" value="contact" />
+    
+    <!-- ALL your form fields MUST be listed here with exact same "name" attributes -->
     <input type="text" name="name" />
     <input type="email" name="email" />
     <input type="tel" name="phone" />
@@ -19,6 +35,9 @@
     </select>
     <input type="text" name="location" />
     <textarea name="message"></textarea>
+    
+    <button type="submit">Submit</button>
   </form>
+  
 </body>
 </html>

@@ -1,43 +1,53 @@
-'use client'
+'use client';
 
-import { useSearchParams } from 'next/navigation';
-import { Suspense, useRef } from 'react';
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
+import { useState } from "react";
 
-function ContactForm() {
-  const searchParams = useSearchParams();
-  const isSuccess = searchParams.get('success') === 'true';
-  const formRef = useRef();
+export default function ContactForm() {
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
 
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    // CRITICAL: Encode as URL-encoded string (Netlify requirement)
+    const urlEncodedData = new URLSearchParams(formData).toString();
+
+    try {
+      // POST to the static HTML file path
+      const response = await fetch("/__forms.html", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/x-www-form-urlencoded" 
+        },
+        body: urlEncodedData,
+      });
+
+      if (response.ok || response.status === 303) {
+        // 303 is a successful redirect from Netlify
+        setSubmitted(true);
+      } else {
+        throw new Error(`Form submission failed: ${response.status}`);
+      }
+    } catch (err) {
+      console.error('Form submission error:', err);
+      setError(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  
-  const myForm = formRef.current;
-  const formData = new FormData(myForm);
+  const resetForm = () => {
+    setSubmitted(false);
+    setError(null);
+  };
 
-  fetch('/', {
-    method: 'POST',
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData).toString()
-  })
-  .then(() => {
-    console.log('Form successfully submitted');
-    window.location.href = '/contact?success=true';
-  })
-  .catch((error) => {
-    console.error('Form submission error:', error);
-    alert('Error submitting form');
-  });
-};
-
-  if (isSuccess) {
+  if (submitted) {
     return (
       <div className="success-message bg-white p-5 shadow-sm">
         <div className="text-center py-5">
@@ -50,17 +60,31 @@ const handleSubmit = (e) => {
               borderRadius: '50%' 
             }}
           >
-            <svg className="text-green-600" style={{ width: '2rem', height: '2rem' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            <svg 
+              className="text-green-600" 
+              style={{ width: '2rem', height: '2rem' }} 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M5 13l4 4L19 7" 
+              />
             </svg>
           </div>
+          
           <h3 className="text-slate-900 mb-3" style={{ fontSize: '1.5rem', lineHeight: '1.4' }}>
             Message Received
           </h3>
+          
           <p className="text-slate-600 mb-4" style={{ fontSize: '1.125rem', lineHeight: '1.5' }}>
             Thank you for reaching out. A member of our clinical team will contact you within 24 hours 
             to discuss your needs and schedule an initial consultation.
           </p>
+          
           <div className="bg-blue-50 p-4 mb-4 text-start">
             <p className="text-slate-700 mb-2" style={{ fontSize: '0.875rem', lineHeight: '1.5', fontWeight: '600' }}>
               Crisis Support Available 24/7:
@@ -72,16 +96,14 @@ const handleSubmit = (e) => {
               Text: <strong>838255</strong>
             </p>
           </div>
-          <a
-            href="/contact"
+          
+          <button
+            onClick={resetForm}
             className="btn bg-slate-100 text-slate-900 border-0 px-4 py-2 rounded-0"
-            style={{ 
-              fontSize: '0.875rem',
-              transition: 'all 0.3s ease'
-            }}
+            style={{ fontSize: '0.875rem', transition: 'all 0.3s ease' }}
           >
             Send Another Message
-          </a>
+          </button>
         </div>
       </div>
     );
@@ -89,20 +111,29 @@ const handleSubmit = (e) => {
 
   return (
     <form 
-      ref={formRef}
       name="contact"
       method="POST"
       onSubmit={handleSubmit}
       data-netlify="true"
-      data-netlify-honeypot="bot-field"
+      netlify-honeypot="bot-field"
     >
-      <input type="hidden" name="form-name" value="contact" />
+      {/* Honeypot field - hidden from users, catches bots */}
       <p hidden>
         <label>
-          Don't fill this out if you're human: <input name="bot-field" />
+          Don't fill this out: <input name="bot-field" />
         </label>
       </p>
-      
+
+      {/* Form name - REQUIRED for Netlify */}
+      <input type="hidden" name="form-name" value="contact" />
+
+      {error && (
+        <div className="alert alert-danger mb-4" role="alert">
+          {error}
+        </div>
+      )}
+
+      {/* Name & Email Row */}
       <div className="row g-4 mb-4">
         <div className="col-12 col-md-6">
           <label className="text-sm text-slate-700 mb-2 d-block font-weight-medium">
@@ -115,8 +146,10 @@ const handleSubmit = (e) => {
             className="form-control border-0 bg-white px-4 py-3 text-slate-900 shadow-sm rounded-0"
             placeholder="Your full name"
             style={{ fontSize: '1rem', lineHeight: '1.6' }}
+            disabled={isSubmitting}
           />
         </div>
+        
         <div className="col-12 col-md-6">
           <label className="text-sm text-slate-700 mb-2 d-block font-weight-medium">
             Email Address
@@ -128,10 +161,12 @@ const handleSubmit = (e) => {
             className="form-control border-0 bg-white px-4 py-3 text-slate-900 shadow-sm rounded-0"
             placeholder="your@email.com"
             style={{ fontSize: '1rem', lineHeight: '1.6' }}
+            disabled={isSubmitting}
           />
         </div>
       </div>
 
+      {/* Phone & Service Status Row */}
       <div className="row g-4 mb-4">
         <div className="col-12 col-md-6">
           <label className="text-sm text-slate-700 mb-2 d-block font-weight-medium">
@@ -144,8 +179,10 @@ const handleSubmit = (e) => {
             className="form-control border-0 bg-white px-4 py-3 text-slate-900 shadow-sm rounded-0"
             placeholder="(555) 123-4567"
             style={{ fontSize: '1rem', lineHeight: '1.6' }}
+            disabled={isSubmitting}
           />
         </div>
+        
         <div className="col-12 col-md-6">
           <label className="text-sm text-slate-700 mb-2 d-block font-weight-medium">
             Service Status
@@ -155,6 +192,7 @@ const handleSubmit = (e) => {
             required
             className="form-control border-0 bg-white px-4 py-3 text-slate-900 shadow-sm rounded-0"
             style={{ fontSize: '1rem', lineHeight: '1.6' }}
+            disabled={isSubmitting}
           >
             <option value="">Please select</option>
             <option value="active-duty-navy">Active Duty Navy</option>
@@ -167,6 +205,7 @@ const handleSubmit = (e) => {
         </div>
       </div>
 
+      {/* Location */}
       <div className="mb-4">
         <label className="text-sm text-slate-700 mb-2 d-block font-weight-medium">
           Current Location / Installation
@@ -177,9 +216,11 @@ const handleSubmit = (e) => {
           className="form-control border-0 bg-white px-4 py-3 text-slate-900 shadow-sm rounded-0"
           placeholder="e.g., Naval Station Norfolk, Fort Liberty, etc."
           style={{ fontSize: '1rem', lineHeight: '1.6' }}
+          disabled={isSubmitting}
         />
       </div>
 
+      {/* Message */}
       <div className="mb-5">
         <label className="text-sm text-slate-700 mb-2 d-block font-weight-medium">
           How Can We Help?
@@ -191,123 +232,25 @@ const handleSubmit = (e) => {
           className="form-control border-0 bg-white px-4 py-3 text-slate-900 shadow-sm rounded-0"
           placeholder="Please share what brings you here today. You can include any specific concerns, preferred appointment times, or questions about our services. All information is kept strictly confidential."
           style={{ fontSize: '1rem', lineHeight: '1.6', resize: 'none' }}
+          disabled={isSubmitting}
         />
       </div>
 
+      {/* Submit Button */}
       <button
         type="submit"
+        disabled={isSubmitting}
         className="btn bg-slate-900 text-white border-0 px-5 py-3 rounded-0 shadow-sm hover-lift"
         style={{ 
           fontSize: '0.875rem', 
           fontWeight: '600',
-          transition: 'all 0.3s ease'
+          transition: 'all 0.3s ease',
+          opacity: isSubmitting ? 0.7 : 1,
+          cursor: isSubmitting ? 'not-allowed' : 'pointer'
         }}
       >
-        Send Confidential Message
+        {isSubmitting ? 'Sending...' : 'Send Confidential Message'}
       </button>
     </form>
-  );
-}
-
-export default function Contact() {
-  return (
-    <>
-      <Nav />
-      <div className="bg-stone-50 min-h-screen py-5">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-12 col-lg-10">
-              
-              <div className="row mb-5">
-                <div className="col-12 col-md-9">
-                  <div>
-                    <h1 className="text-6xl text-slate-900 font-light mb-4 tracking-tight">
-                      Get In Touch
-                    </h1>
-                    <p className="text-lg text-slate-600 mb-4" style={{ fontSize: '1.125rem', lineHeight: '1.5' }}>
-                      We're here to help. All communications are confidential.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="row g-5">
-                <div className="col-12 col-lg-8">
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <ContactForm />
-                  </Suspense>
-                </div>
-
-                <div className="col-12 col-lg-4">
-                  <div className="bg-white p-5 shadow-sm h-fit mb-4">
-                    
-                    <div className="mb-5">
-                      <h4 className="text-slate-900 mb-3" style={{ fontSize: '1.25rem', lineHeight: '1.45' }}>
-                        Who We Serve
-                      </h4>
-                      <ul className="list-unstyled">
-                        <li className="text-slate-600 mb-2" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
-                          • Active duty 
-                        </li>
-                        <li className="text-slate-600 mb-2" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
-                          • Military spouses 
-                        </li>
-                        <li className="text-slate-600 mb-2" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
-                          • Recent veterans
-                        </li>
-                        <li className="text-slate-600 mb-2" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
-                          • First responders (eligibility varies)
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div className="mb-5">
-                      <h4 className="text-slate-900 mb-3" style={{ fontSize: '1.25rem', lineHeight: '1.45' }}>
-                        What to Expect
-                      </h4>
-                      <p className="text-slate-600 mb-3" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
-                        We respond to all inquiries within 2 business days. Initial consultations can often be scheduled within 48-72 hours.
-                      </p>
-                      <p className="text-slate-600" style={{ fontSize: '1rem', lineHeight: '1.6' }}>
-                        All services are confidential and designed specifically for military culture and experience.
-                      </p>
-                    </div>
-
-                  </div>
-
-                  <div className="bg-blue-50 p-5 shadow-sm">
-                    <h4 className="text-slate-900 mb-3" style={{ fontSize: '1.25rem', lineHeight: '1.45' }}>
-                      Immediate Support
-                    </h4>
-                    <p className="text-slate-700 mb-3" style={{ fontSize: '0.875rem', lineHeight: '1.5' }}>
-                      If you're experiencing a mental health crisis:
-                    </p>
-                    <div className="mb-3">
-                      <p className="text-slate-700 mb-1" style={{ fontSize: '0.875rem', lineHeight: '1.5', fontWeight: '600' }}>
-                        Military Crisis Line
-                      </p>
-                      <p className="text-slate-800" style={{ fontSize: '1rem', lineHeight: '1.6', fontWeight: '700' }}>
-                        1-800-273-8255
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-slate-700 mb-1" style={{ fontSize: '0.875rem', lineHeight: '1.5', fontWeight: '600' }}>
-                        Crisis Text Line
-                      </p>
-                      <p className="text-slate-800" style={{ fontSize: '1rem', lineHeight: '1.6', fontWeight: '700' }}>
-                        Text: 838255
-                      </p>
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <Footer />
-    </>
   );
 }
