@@ -16,28 +16,26 @@ function ContactForm() {
       .join("&");
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(formRef.current);
-    const data = {};
-    
-    for (let [key, value] of formData.entries()) {
-      data[key] = value;
-    }
+const handleSubmit = (e) => {
+  e.preventDefault();
+  
+  const myForm = formRef.current;
+  const formData = new FormData(myForm);
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...data })
-    })
-      .then(() => {
-        window.location.href = '/contact?success=true';
-      })
-      .catch(error => {
-        console.error('Form submission error:', error);
-        alert('There was an error submitting your form. Please try again.');
-      });
-  };
+  fetch('/', {
+    method: 'POST',
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString()
+  })
+  .then(() => {
+    console.log('Form successfully submitted');
+    window.location.href = '/contact?success=true';
+  })
+  .catch((error) => {
+    console.error('Form submission error:', error);
+    alert('Error submitting form');
+  });
+};
 
   if (isSuccess) {
     return (
