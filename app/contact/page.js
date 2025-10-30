@@ -61,11 +61,12 @@ function ContactForm() {
     <form 
       name="contact"
       method="POST"
-      action="/contact?success=true"
+      action="/contact"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
       <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="success-redirect" value="/contact?success=true" />
       <p style={{ display: 'none' }}>
         <label>
           Don't fill this out if you're human: <input name="bot-field" />
