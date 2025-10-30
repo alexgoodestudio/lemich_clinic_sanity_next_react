@@ -1,13 +1,38 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
+import { Suspense, useRef } from 'react';
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 function ContactForm() {
   const searchParams = useSearchParams();
   const isSuccess = searchParams.get('success') === 'true';
+  const formRef = useRef(null);
+
+  // Handle form submission and bypass Next.js router
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = formRef.current;
+    
+    // Create FormData from the form
+    const formData = new FormData(form);
+    
+    // Submit using fetch to bypass Next.js router
+    fetch('/', {
+      method: 'POST',
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+      // Redirect to success page using window.location (full page reload)
+      window.location.href = '/contact?success=true';
+    })
+    .catch((error) => {
+      alert('Error submitting form. Please try again.');
+      console.error(error);
+    });
+  };
 
   if (isSuccess) {
     return (
@@ -42,7 +67,7 @@ function ContactForm() {
               Text: <strong>838255</strong>
             </p>
           </div>
-          <a
+          
             href="/contact"
             className="btn bg-slate-100 text-slate-900 border-0 px-4 py-2 rounded-0"
             style={{ 
@@ -58,16 +83,17 @@ function ContactForm() {
   }
 
   return (
-<form 
-  name="contact"
-  method="POST"
-  netlify
-  netlify-honeypot="bot-field"
-  action="/contact?success=true"
->
+    <form 
+      ref={formRef}
+      name="contact"
+      method="POST"
+      onSubmit={handleSubmit}
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
       <input type="hidden" name="form-name" value="contact" />
-        <input type="hidden" name="success-redirect" value="/contact?success=true" />
-      <p style={{ display: 'none' }}>
+      
+      <p hidden>
         <label>
           Don't fill this out if you're human: <input name="bot-field" />
         </label>
