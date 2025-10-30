@@ -6,11 +6,3 @@
 
 [build.environment]
   NETLIFY_NEXT_PLUGIN_SKIP = "false"
-
-# Form submission redirect
-[[redirects]]
-  from = "/contact"
-  to = "/contact?success=true"
-  status = 303
-  force = false
-  conditions = {Role = ["form-submission"]}
