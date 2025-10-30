@@ -38,13 +38,15 @@ function ContactForm() {
     return (
       <div className="success-message bg-white p-5 shadow-sm">
         <div className="text-center py-5">
-          <div className="d-flex align-items-center justify-content-center mx-auto mb-4" 
-               style={{ 
-                 width: '4rem', 
-                 height: '4rem', 
-                 backgroundColor: 'rgb(220 252 231)', 
-                 borderRadius: '50%' 
-               }}>
+          <div 
+            className="d-flex align-items-center justify-content-center mx-auto mb-4" 
+            style={{ 
+              width: '4rem', 
+              height: '4rem', 
+              backgroundColor: 'rgb(220 252 231)', 
+              borderRadius: '50%' 
+            }}
+          >
             <svg className="text-green-600" style={{ width: '2rem', height: '2rem' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
@@ -95,7 +97,7 @@ function ContactForm() {
       
       <p hidden>
         <label>
-          Don't fill this out if you're human: <input name="bot-field" />
+          Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
         </label>
       </p>
       
@@ -229,7 +231,7 @@ export default function Contact() {
                       Get In Touch
                     </h1>
                     <p className="text-lg text-slate-600 mb-4" style={{ fontSize: '1.125rem', lineHeight: '1.5' }}>
-                      We're here to help. All communications are confidential.
+                      We&apos;re here to help. All communications are confidential.
                     </p>
                   </div>
                 </div>
@@ -286,7 +288,7 @@ export default function Contact() {
                       Immediate Support
                     </h4>
                     <p className="text-slate-700 mb-3" style={{ fontSize: '0.875rem', lineHeight: '1.5' }}>
-                      If you're experiencing a mental health crisis:
+                      If you&apos;re experiencing a mental health crisis:
                     </p>
                     <div className="mb-3">
                       <p className="text-slate-700 mb-1" style={{ fontSize: '0.875rem', lineHeight: '1.5', fontWeight: '600' }}>
