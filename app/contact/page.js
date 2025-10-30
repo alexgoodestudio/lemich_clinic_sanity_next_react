@@ -58,13 +58,13 @@ function ContactForm() {
   }
 
   return (
-    <form 
-      name="contact"
-      method="POST"
-      action="/contact"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-    >
+<form 
+  name="contact"
+  method="POST"
+  netlify
+  netlify-honeypot="bot-field"
+  action="/contact?success=true"
+>
       <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="success-redirect" value="/contact?success=true" />
       <p style={{ display: 'none' }}>
