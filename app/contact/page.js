@@ -1,13 +1,27 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
+import { Suspense, useRef } from 'react';
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 function ContactForm() {
   const searchParams = useSearchParams();
   const isSuccess = searchParams.get('success') === 'true';
+  const formRef = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(formRef.current);
+    
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(() => window.location.href = '/contact?success=true')
+    .catch((error) => alert('Error: ' + error));
+  };
 
   if (isSuccess) {
     return (
@@ -24,7 +38,7 @@ function ContactForm() {
   }
 
   return (
-    <form name="contact" method="POST" data-netlify="true">
+    <form ref={formRef} name="contact" method="POST" onSubmit={handleSubmit} data-netlify="true">
       <input type="hidden" name="form-name" value="contact" />
       
       <div className="row g-4 mb-4">
@@ -40,7 +54,7 @@ function ContactForm() {
 
       <div className="row g-4 mb-4">
         <div className="col-12 col-md-6">
-          <label className="text-sm text-slate-700 mb-2 d-block">Phone (Optional)</label>
+          <label className="text-sm text-slate-700 mb-2 d-block">Phone</label>
           <input type="tel" name="phone" className="form-control" />
         </div>
         <div className="col-12 col-md-6">
@@ -67,9 +81,7 @@ function ContactForm() {
         <textarea name="message" required rows="6" className="form-control"></textarea>
       </div>
 
-      <button type="submit" className="btn bg-slate-900 text-white">
-        Send Message
-      </button>
+      <button type="submit" className="btn bg-slate-900 text-white">Send Message</button>
     </form>
   );
 }
