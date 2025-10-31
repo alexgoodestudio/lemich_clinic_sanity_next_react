@@ -1,6 +1,9 @@
 'use client';
 
 import { useState } from "react";
+import Nav from "@/components/Nav";
+import Banner from "@/components/Banner";
+import Footer from "@/components/Footer";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -50,6 +53,7 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div className="success-message bg-white p-5 shadow-sm">
+        
         <div className="text-center py-5">
           <div 
             className="d-flex align-items-center justify-content-center mx-auto mb-4" 
@@ -99,7 +103,7 @@ export default function ContactForm() {
           
           <button
             onClick={resetForm}
-            className="btn bg-slate-100 text-slate-900 border-0 px-4 py-2 rounded-0"
+            className="btn bg-slate-800 text-slate-900 border-0 px-4 py-2 rounded-0"
             style={{ fontSize: '0.875rem', transition: 'all 0.3s ease' }}
           >
             Send Another Message
@@ -110,13 +114,21 @@ export default function ContactForm() {
   }
 
   return (
+    <div>
     <form 
       name="contact"
       method="POST"
       onSubmit={handleSubmit}
       data-netlify="true"
       netlify-honeypot="bot-field"
+      className="container"
     >
+        <div className="mb-5 pb-5">
+        <Nav />
+        </div>
+        <h1 className="text-6xl">Get in Touch</h1>
+        <p className="text-dark mb-5 text-xl">We're here to help. All communications are confidential.</p>
+
       {/* Honeypot field - hidden from users, catches bots */}
       <p hidden>
         <label>
@@ -205,20 +217,7 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Location */}
-      <div className="mb-4">
-        <label className="text-sm text-slate-700 mb-2 d-block font-weight-medium">
-          Current Location / Installation
-        </label>
-        <input
-          type="text"
-          name="location"
-          className="form-control border-0 bg-white px-4 py-3 text-slate-900 shadow-sm rounded-0"
-          placeholder="e.g., Naval Station Norfolk, Fort Liberty, etc."
-          style={{ fontSize: '1rem', lineHeight: '1.6' }}
-          disabled={isSubmitting}
-        />
-      </div>
+    
 
       {/* Message */}
       <div className="mb-5">
@@ -252,5 +251,8 @@ export default function ContactForm() {
         {isSubmitting ? 'Sending...' : 'Send Confidential Message'}
       </button>
     </form>
+    <Banner/>
+    <Footer/>
+    </div>
   );
 }
