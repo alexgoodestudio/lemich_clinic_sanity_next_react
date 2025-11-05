@@ -93,7 +93,7 @@ export default function ServiceCards() {
         
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <h2 className="text-4xl md:text-4xl  font-semibold text-slate-900 mb-6 leading-tight">
+          <h2 className="text-5xl  font-semibold text-slate-900 mb-6 leading-tight">
             How we serve those who serve
           </h2>
           <p className="text-lg md:text-xl text-slate-600 leading-relaxed">

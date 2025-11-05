@@ -49,7 +49,7 @@ export default function Owners() {
                 <img
                   ref={logoRef}
                   src="/images/owners-min.png"
-                  alt="Gregory and Jennifer Lemich"
+                  alt="Gregory and Jennifer Lemich, Owners"
                   className="img-fluid w-100"
                   style={{ maxWidth: '450px' }}
                 />
