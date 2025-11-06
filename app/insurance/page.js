@@ -25,7 +25,7 @@ export default function Insurance() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center mb-4">
               <div>
-                <h1 className="text-6xl font-semibold text-slate-900 mb-2 tracking-tight lh-1 tomorrow">
+                <h1 className="text-5xl font-semibold text-slate-900 mb-2 tracking-tight lh-1 tomorrow">
                   Payment & Insurance
                 </h1>
                 <p className="text-xl text-slate-600">
@@ -67,7 +67,7 @@ export default function Insurance() {
                         </div>
                       </div>
                       <div>
-                        <h2 className="text-5xl font-semibold text-slate-900 mb-2 tracking-tight tomorrow">
+                        <h2 className="text-4xl font-semibold text-slate-900 mb-2 tracking-tight tomorrow">
                           Active Duty
                         </h2>
                         <p className="text-lg text-slate-600">
@@ -114,7 +114,7 @@ export default function Insurance() {
                         </div>
                       </div>
                       <div>
-                        <h2 className="text-5xl font-semibold text-slate-900 mb-2 tracking-tight tomorrow">
+                        <h2 className="text-4xl font-semibold text-slate-900 mb-2 tracking-tight tomorrow">
                           Veterans & Dependents
                         </h2>
                         <p className="text-lg text-slate-600">

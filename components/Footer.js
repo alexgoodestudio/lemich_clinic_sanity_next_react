@@ -40,7 +40,7 @@ export default function Footer() {
   const LinkItem = ({ item }) => (
     <Link
       href={item.href}
-      className="footer-link block transition-all duration-300 ease-out hover:translate-x-1"
+      className="footer-link block transition-all duration-300 ease-out hover:translate-x-1 mb-3"
       {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {item.label}
@@ -49,7 +49,7 @@ export default function Footer() {
 
   const FooterModule = ({ title, children }) => (
     <div className="footer-module">
-      <h4 className="footer-heading">{title}</h4>
+      <h4 className="footer-heading mb-3">{title}</h4>
       <div className="footer-content">
         {children}
       </div>
@@ -229,7 +229,7 @@ export default function Footer() {
             {/* Services Module */}
             <FooterModule title={footerModules.services.title}>
               {footerModules.services.links.map((item) => (
-                <LinkItem key={item.label} item={item} />
+                <LinkItem key={item.label} item={item}/>
               ))}
             </FooterModule>
 
