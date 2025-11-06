@@ -1,5 +1,3 @@
-// app/owners/layout.js
-
 export const metadata = {
   title: 'Dr. Gregory Lemich (PhD) & Jennifer Lemich | Navy Veteran-Owned | Norfolk VA',
   description: 'Meet the founders of The Lemich Clinic: Dr. Gregory Lemich (PhD in Counselor Education, ODU Professor) and Jennifer Lemich (22-year Navy veteran). Veteran-owned military mental health clinic in Norfolk, Virginia, dedicated to serving active duty, veterans, and military families.',

@@ -1,5 +1,5 @@
 import { PortableText } from '@portabletext/react'
-import { client } from '@/lib/sanity'
+import { client, urlFor, getSiteSettings } from '@/lib/sanity'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import Banner from '@/components/Banner'
@@ -8,6 +8,76 @@ import Link from 'next/link'
 // Force dynamic rendering - no caching
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
+
+// Generate metadata per-blog-post for Next.js App Router
+export async function generateMetadata({ params }) {
+  const { slug } = params
+
+  // Query a minimal projection for metadata (match the fields used in the page)
+  const post = await client.fetch(
+    `*[_type == "blogPost" && slug.current == $slug][0] {
+      title,
+      slug,
+      description,
+      date,
+      _createdAt,
+      _updatedAt,
+      author,
+      published
+    }`,
+    { slug }
+  )
+
+  // If post isn't found or not published, return a minimal metadata object
+  if (!post || post.published === false) {
+    return {
+      title: 'Post not found',
+      description: 'The requested blog post could not be found.',
+    }
+  }
+
+  const siteSettings = await getSiteSettings()
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lemichclinic.com'
+  const canonical = `${siteUrl}/blog/${post.slug?.current || slug}`
+
+  const title = post.title
+  const description = post.description || siteSettings?.footerDescription || `${title} — Lemich Clinic`
+  const publishedTime = post.date ? new Date(post.date).toISOString() : post._createdAt ? new Date(post._createdAt).toISOString() : undefined
+  const modifiedTime = post._updatedAt ? new Date(post._updatedAt).toISOString() : undefined
+
+  // This repo's blog posts don't include an image field in the schema; use a safe public fallback
+  const ogImage = `${siteUrl}/images/1.avif`
+
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: siteSettings?.heroTitle || 'Lemich Clinic',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: post.title || 'Lemich Clinic blog image',
+        },
+      ],
+      type: 'article',
+      publishedTime,
+      modifiedTime,
+      authors: post.author ? [post.author] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
+    },
+  }
+}
 
 export default async function BlogPost({ params }) {
   const { slug } = params
@@ -30,7 +100,7 @@ export default async function BlogPost({ params }) {
     }
   )
 
-  if (!post) {
+  if (!post || post.published === false) {
     return (
       <div className="bg-slate-50 min-vh-100">
         <Nav />

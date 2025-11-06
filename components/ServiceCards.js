@@ -35,7 +35,7 @@ const services = [
   {
     Icon: FileText,
     title: "Administrative Support",
-    description: "Expert assistance with LIMDU, Med Board, VA, and Security Clearance paperwork when medically necessary.",
+    description: "Expert assistance with LIMDU, Med Board, Nexus Letters, Summary Letters, and Security Clearance paperwork when medically necessary.",
     featured: false
   }
 ]
