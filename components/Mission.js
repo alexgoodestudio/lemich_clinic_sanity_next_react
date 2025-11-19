@@ -109,9 +109,10 @@ export default function Mission() {
               </div>
               
               {/* Accent line */}
-              <div 
+              <div
                 ref={accentRef}
-                className="mission-accent-line bg-emerald-500 mt-3"
+                className="mission-accent-line mt-3"
+                style={{ backgroundColor: '#b5cde7' }}
               ></div>
             </div>
           </div>
