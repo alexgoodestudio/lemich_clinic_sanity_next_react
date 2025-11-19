@@ -4,6 +4,7 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import Banner from '@/components/Banner'
 import Link from 'next/link'
+import Image from 'next/image'
 
 // Force dynamic rendering - no caching
 export const dynamic = 'force-dynamic'
@@ -23,7 +24,8 @@ export async function generateMetadata({ params }) {
       _createdAt,
       _updatedAt,
       author,
-      published
+      published,
+      featuredImage
     }`,
     { slug }
   )
@@ -45,8 +47,10 @@ export async function generateMetadata({ params }) {
   const publishedTime = post.date ? new Date(post.date).toISOString() : post._createdAt ? new Date(post._createdAt).toISOString() : undefined
   const modifiedTime = post._updatedAt ? new Date(post._updatedAt).toISOString() : undefined
 
-  // This repo's blog posts don't include an image field in the schema; use a safe public fallback
-  const ogImage = `${siteUrl}/images/1.avif`
+  // Use the featured image if available, otherwise fall back to default
+  const ogImage = post.featuredImage
+    ? urlFor(post.featuredImage).width(1200).height(630).url()
+    : `${siteUrl}/images/1.avif`
 
   return {
     title,
@@ -92,7 +96,8 @@ export default async function BlogPost({ params }) {
       _createdAt,
       _updatedAt,
       author,
-      content
+      content,
+      featuredImage
     }`,
     { slug },
     {
@@ -188,10 +193,24 @@ export default async function BlogPost({ params }) {
               <span className="mx-2 text-slate-400">•</span>
               <span className="text-sm text-slate-500">{post.author}</span>
             </div>
-            
-            <h1 className="text-5xl font-bold text-slate-900 mb-0">
+
+            <h1 className="text-5xl font-bold text-slate-900 mb-4">
               {post.title}
             </h1>
+
+            {/* Featured Image */}
+            {post.featuredImage && (
+              <div className="position-relative w-100 mb-4 rounded overflow-hidden" style={{ height: '400px' }}>
+                <Image
+                  src={urlFor(post.featuredImage).width(1200).height(600).url()}
+                  alt={post.featuredImage.alt || post.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  priority
+                />
+              </div>
+            )}
           </div>
         </header>
 

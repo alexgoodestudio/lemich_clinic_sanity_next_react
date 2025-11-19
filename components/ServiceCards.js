@@ -93,8 +93,8 @@ export default function ServiceCards() {
         
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <h2 className="text-5xl  font-semibold text-slate-900 mb-6 leading-tight">
-            Services:
+          <h2 className="text-5xl tomorrow font-semibold text-slate-900 mb-6 leading-tight">
+            What we offer
           </h2>
           <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
             Specialized support for active duty service members, veterans, and military spouses navigating mental health challenges.

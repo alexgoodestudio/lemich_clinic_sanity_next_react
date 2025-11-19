@@ -48,7 +48,7 @@ export default function Tricare() {
       className="bg-slate-800 text-white tricare-section"
       aria-labelledby="tricare-heading"
     >
-      <div className="container">
+      <div className="container px-5 px-lg-0">
         <div className="row justify-content-center">
           <div className="col-12 col-lg-10 col-xl-8">
             <div className="tricare-content">

@@ -13,7 +13,7 @@ export default function Services() {
   return (
     <>
       <Nav />
-      <div className="d-flex flex-column bg-slate-50">
+      <div className="d-flex flex-column bg-slate-50 px-lg-5">
         <div className="container-fluid px-3 px-md-5 py-5 flex-grow-1">
           <div className="row mb-3">
             <div className="col-12">

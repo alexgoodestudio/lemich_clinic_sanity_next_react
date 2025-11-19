@@ -4,20 +4,13 @@ import { useRef } from 'react'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 
-const MOTION = {
-  instant: 0.15,
-  quick: 0.3,
-  smooth: 0.5,
-  slow: 0.8,
-  story: 1.2
-}
-
 export default function Banner() {
   const containerRef = useRef(null)
   const trackRef = useRef(null)
   const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  const message = "Request confidential mental health support today"
+  const message = "The Lemich Clinic"
+  const description = "Home of Military Mental Health"
   const location = "Located in Norfolk, Virginia"
 
   useGSAP(() => {
@@ -46,6 +39,8 @@ export default function Banner() {
     <span key={i} className="inline-flex items-center">
       <span>{message}</span>
       <span className="mx-8 text-slate-500" aria-hidden="true">•</span>
+      <span>{description}</span>
+      <span className="mx-8 text-slate-500" aria-hidden="true">•</span>
       <span>{location}</span>
       <span className="mx-8 text-slate-500" aria-hidden="true">•</span>
     </span>
@@ -60,7 +55,7 @@ export default function Banner() {
     >
       <div 
         ref={trackRef}
-        className="flex whitespace-nowrap text-3xl font-semibold text-slate-900"
+        className="flex whitespace-nowrap text-5xl font-semibold text-slate-900"
       >
         {content}
       </div>

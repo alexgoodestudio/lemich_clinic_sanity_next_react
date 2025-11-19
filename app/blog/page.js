@@ -12,7 +12,8 @@ const posts = await client.fetch(
         description,
         date,
         author,
-        content
+        content,
+        featuredImage
       }`,
       {},
       {

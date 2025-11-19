@@ -58,7 +58,7 @@ export default function Hero() {
       })
     }
 
-    const interval = setInterval(slideAnimation, 5100)
+    const interval = setInterval(slideAnimation, 5000)
     return () => clearInterval(interval)
   }, [])
 
@@ -72,7 +72,7 @@ export default function Hero() {
         <div className="col-lg-5 p-5">
           <div className="d-flex align-items-start mb-3">
             <div>
-              <p className="text-4xl mb-0 font-extrabold">
+              <p className="text-4xl mb-0 font-extrabold" style={{ letterSpacing: '0.0125em' }}>
                 Home of Military Mental Health
               </p>
             </div>
@@ -86,11 +86,11 @@ export default function Hero() {
           </p>
 
           <div className="d-flex">
-            <a href="tel:+17575361233" className="btn btn-dark rounded px-4 py-2 me-3" aria-label="Call The Lemich Clinic">
+            <a href="tel:+17575361233" className="btn btn-dark rounded px-lg-5 py-lg-3 px-4 py-2 me-3" aria-label="Call The Lemich Clinic">
               Call Us
             </a>
-            <a href="/contact" className="btn btn-outline-secondary rounded px-4 py-2" aria-label="Contact and location">
-              Contact
+            <a href="/contact" className="btn btn-outline-secondary rounded px-lg-5 py-lg-3 px-4 py-2" aria-label="Contact and location">
+              Contact Us
             </a>
           </div>
         </div>
@@ -106,11 +106,11 @@ export default function Hero() {
           {services.map((service, index) => (
             <div key={index} ref={(el) => { serviceRefs.current[index] = el }} className="border-bottom border-gray-300 py-3" style={{ cursor: 'pointer' }} onClick={() => toggle(index)}>
               <div className="d-flex justify-content-between align-items-center">
-                <p className="fw-semibold mb-0">{service.title}</p>
-                <span className="fs-5">{openIndex === index ? "−" : "+"}</span>
+                <p className="fw-semibold mb-0 text-sm md:text-base">{service.title}</p>
+                <span className="text-lg md:text-xl">{openIndex === index ? "−" : "+"}</span>
               </div>
               {openIndex === index && (
-                <div className="mt-2 text-muted small">{service.text}</div>
+                <div className="mt-2 text-muted text-xs md:text-sm">{service.text}</div>
               )}
             </div>
           ))}

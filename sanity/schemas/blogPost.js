@@ -26,6 +26,23 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'featuredImage',
+      title: 'Featured Image',
+      type: 'image',
+      options: {
+        hotspot: true
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative Text',
+          description: 'Important for SEO and accessibility'
+        }
+      ],
+      validation: Rule => Rule.required()
+    },
+    {
       name: 'author',
       title: 'Author',
       type: 'string',

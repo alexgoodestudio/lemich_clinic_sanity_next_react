@@ -7,6 +7,8 @@ import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ArrowRight, Calendar, User } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { urlFor } from '@/lib/sanity';
 
 const MOTION = {
   instant: 0.15,
@@ -80,8 +82,8 @@ export default function BlogClient({ blogPosts }) {
         {/* Header Section */}
         <div className="row mb-5 pb-4" ref={headerRef}>
           <div className="col-lg-8">
-            <h1 className="text-6xl text-slate-900 fw-bold mb-3">
-              Resources & Insights
+            <h1 className="text-5xl text-slate-900 fw-bold mb-3">
+              The Lemich Clinic
             </h1>
             <p className="text-lg text-slate-600 mb-0">
               Expert guidance on military mental health, VA benefits, and therapy for service members and veterans.
@@ -97,17 +99,32 @@ export default function BlogClient({ blogPosts }) {
               const displayDate = post.date || post._createdAt;
               
               return (
-                <div 
-                  key={post._id} 
+                <div
+                  key={post._id}
                   className="col-12"
                   ref={el => postsRef.current[index] = el}
                 >
                   <article className="bg-white rounded overflow-hidden blog-post-card">
                     <div className="row g-0">
-                      
+
+                      {/* Featured Image */}
+                      {post.featuredImage && (
+                        <div className="col-lg-4">
+                          <div className="position-relative" style={{ height: '300px' }}>
+                            <Image
+                              src={urlFor(post.featuredImage).width(600).height(400).url()}
+                              alt={post.featuredImage.alt || post.title}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, 400px"
+                            />
+                          </div>
+                        </div>
+                      )}
+
                       {/* Content Side */}
-                      <div className="col-lg-12 p-5">
-                        
+                      <div className={post.featuredImage ? "col-lg-8 p-5" : "col-lg-12 p-5"}>
+
                         {/* Metadata */}
                         <div className="d-flex align-items-center gap-4 mb-3">
                           <div className="d-flex align-items-center gap-2">
