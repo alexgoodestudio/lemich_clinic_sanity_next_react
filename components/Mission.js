@@ -144,19 +144,19 @@ export default function Mission() {
           <div className="col-12">
             <div className="row mission-stats-grid text-center mt-5 pt-4">
               <div className="col-6 col-lg-3 mb-4 mb-lg-0">
-                <div ref={el => statsRefs.current[0] = el} className="text-4xl font-bold text-slate-900">0</div>
+                <div ref={el => statsRefs.current[0] = el} className="text-6xl font-bold text-slate-800">0</div>
                 <div className="text-sm text-slate-500 mt-1">Years of Service</div>
               </div>
               <div className="col-6 col-lg-3 mb-4 mb-lg-0">
-                <div ref={el => statsRefs.current[1] = el} className="text-4xl font-bold text-slate-900">0%</div>
+                <div ref={el => statsRefs.current[1] = el} className="text-6xl font-bold text-slate-800">0%</div>
                 <div className="text-sm text-slate-500 mt-1">TRICARE Coverage</div>
               </div>
               <div className="col-6 col-lg-3 mb-4 mb-lg-0">
-                <div ref={el => statsRefs.current[2] = el} className="text-4xl font-bold text-slate-900">0+</div>
+                <div ref={el => statsRefs.current[2] = el} className="text-6xl font-bold text-slate-800">0+</div>
                 <div className="text-sm text-slate-500 mt-1">Service Members Helped</div>
               </div>
               <div className="col-6 col-lg-3 mb-4 mb-lg-0">
-                <div ref={el => statsRefs.current[3] = el} className="text-4xl font-bold text-slate-900">0</div>
+                <div ref={el => statsRefs.current[3] = el} className="text-6xl font-bold text-slate-800">0</div>
                 <div className="text-sm text-slate-500 mt-1">Clinicians</div>
               </div>
             </div>

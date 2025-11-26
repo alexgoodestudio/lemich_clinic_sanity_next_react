@@ -102,7 +102,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="col-lg-2 p-5 border-start border-gray-300">
+        <div className="col-lg-2 p-5 border-start border-gray-300 d-none d-lg-block">
           {services.map((service, index) => (
             <div key={index} ref={(el) => { serviceRefs.current[index] = el }} className="border-bottom border-gray-300 py-3" style={{ cursor: 'pointer' }} onClick={() => toggle(index)}>
               <div className="d-flex justify-content-between align-items-center">
