@@ -69,7 +69,7 @@ export default function Hero() {
   return (
     <div className="container-fluid mt-5">
       <div className="row align-items-center">
-        <div className="col-lg-5 p-5">
+        <div className="col-lg-5 p-lg-5 p-4">
           <div className="d-flex align-items-start mb-3">
             <div>
               <p className="text-4xl mb-0 font-extrabold" style={{ letterSpacing: '0.0125em' }}>
@@ -95,7 +95,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="col-lg-5 p-5">
+        <div className="col-lg-5 p-lg-5 p-4">
           <div ref={imageContainerRef} className="position-relative overflow-hidden rounded-lg shadow-lg">
             <img ref={baseImageRef} src="/images/unit.jpg" alt="Military unit" className="base-image w-100 h-auto" />
             <img ref={slideImageRef} src="/images/ship.jpg" alt="Naval ship" className="w-100 h-auto position-absolute top-0 start-0" style={{ opacity: 0, transform: "translateX(100%)", zIndex: 2 }} />

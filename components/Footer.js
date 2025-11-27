@@ -253,7 +253,7 @@ export default function Footer() {
 
           {/* Footer bottom */}
           <div className="footer-bottom">
-            © {new Date().getFullYear()} The Lemich Clinic. Military mental health specialists.
+            © {new Date().getFullYear()} The Lemich Clinic. Home of Military Mental Health.
           </div>
         </div>
       </footer>
