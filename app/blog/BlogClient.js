@@ -82,7 +82,7 @@ export default function BlogClient({ blogPosts }) {
         {/* Header Section */}
         <div className="row mb-5 pb-4" ref={headerRef}>
           <div className="col-lg-8">
-            <h1 className="text-5xl text-slate-900 fw-bold mb-3">
+            <h1 className="text-5xl  text-slate-900  fw-bold mb-3">
               The Lemich Clinic
             </h1>
             <p className="text-lg text-slate-600 mb-0">

@@ -6,8 +6,8 @@ export default function HeroBottomBanner() {
       <div className="py-4">
         <div className="row align-items-center">
           <div className="col-lg-8">
-            <p className="text-2xl md:text-3xl font-bold mb-3">
-              <span className='light-blue'>Confidential Care.</span> Your Privacy Protected.
+            <p className="text-2xl md:text-3xl font-bold mb-3 light-blue">
+              <span className='text-white'>Your Mental Health Matters.</span> Your Privacy Protected.
             </p>
             <p className="text-lg text-slate-300 mb-0 tracking-wide">
               We understand the unique concerns of active duty service members. Your mental health care is completely confidential.
