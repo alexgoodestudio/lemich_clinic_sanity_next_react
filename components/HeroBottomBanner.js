@@ -2,8 +2,8 @@ import Link from 'next/link'
 
 export default function HeroBottomBanner() {
   return (
-    <div className="p-lg-5 p-4 bg-slate-800 text-white">
-      <div className="pt-4">
+    <div className="p-lg-5 p-4 bg-slate-900 text-white">
+      <div className="py-4">
         <div className="row align-items-center">
           <div className="col-lg-8">
             <p className="text-2xl md:text-3xl font-bold mb-3">
