@@ -122,7 +122,7 @@ export default function Mission() {
             <div className="mission-text-container">
               <p 
                 ref={textRef}
-                className="text-lg text-slate-600 leading-relaxed mb-0"
+                className="text-lg text-slate-600 leading-relaxed  mb-0"
               >
                 The Lemich Clinic for Military Mental Health was founded on
                 the belief that everyone who serves should have access to

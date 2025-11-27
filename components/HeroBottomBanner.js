@@ -2,14 +2,14 @@ import Link from 'next/link'
 
 export default function HeroBottomBanner() {
   return (
-    <div className="p-lg-5 p-4 bg-slate-950 text-white">
-      <div className="">
+    <div className="p-lg-5 p-4 bg-slate-800 text-white">
+      <div className="pt-4">
         <div className="row align-items-center">
           <div className="col-lg-8">
             <p className="text-2xl md:text-3xl font-bold mb-3">
-              Confidential Care. Your Privacy Protected.
+              <span className='light-blue'>Confidential Care.</span> Your Privacy Protected.
             </p>
-            <p className="text-lg text-slate-300 mb-0">
+            <p className="text-lg text-slate-300 mb-0 tracking-wide">
               We understand the unique concerns of active duty service members. Your mental health care is completely confidential.
             </p>
             <Link

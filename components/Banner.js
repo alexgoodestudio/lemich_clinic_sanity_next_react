@@ -26,7 +26,7 @@ export default function Banner() {
 
     gsap.to(track, {
       x: -trackWidth,
-      duration: 40,
+      duration: 60,
       ease: 'none',
       repeat: -1,
       modifiers: {

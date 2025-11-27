@@ -78,8 +78,8 @@ export default function Hero() {
             </div>
           </div>
 
-          <p className="text-lg text-slate-600 mb-4">
-            Dedicated to the Mental Health of Norfolk, Virginia&apos;s Military
+          <p className="text-lg text-slate-600 mb-4 tracking-wide">
+            Dedicated to the Mental Health of <span className="">Norfolk, Virginia</span>'s Military
             Community — specializing in trauma-informed care, PTSD treatment,
             VA paperwork support, and confidential clinical services for
             active duty, veterans and families.

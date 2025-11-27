@@ -40,7 +40,7 @@ export default function Footer() {
   const LinkItem = ({ item }) => (
     <Link
       href={item.href}
-      className="footer-link block transition-all duration-300 ease-out hover:translate-x-1 mb-3"
+      className="footer-link block hover:translate-x-1 mb-3"
       {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {item.label}
@@ -58,164 +58,7 @@ export default function Footer() {
 
   return (
     <>
-      <style jsx>{`
-        .footer-container {
-          background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
-          border-top: 1px solid #e2e8f0;
-          position: relative;
-        }
-        
-        .footer-inner {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 4vw, 2rem) clamp(2rem, 4vw, 3rem);
-        }
-        
-        .footer-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: clamp(2rem, 4vw, 3rem);
-        }
-        
-        @media (min-width: 768px) {
-          .footer-grid {
-            grid-template-columns: 1.5fr 1fr 1fr 1fr;
-            gap: clamp(2rem, 4vw, 4rem);
-          }
-        }
-        
-        .footer-heading {
-          font-size: 1.125rem;
-          font-weight: 600;
-          letter-spacing: -0.01em;
-          color: #1e293b;
-          margin-bottom: clamp(1rem, 2vw, 1.5rem);
-          line-height: 1.3;
-        }
-        
-        .footer-content {
-          display: flex;
-          flex-direction: column;
-          gap: 0.75rem;
-        }
-        
-        .footer-link {
-          font-size: 0.9375rem;
-          font-weight: 400;
-          color: #64748b;
-          text-decoration: none;
-          line-height: 1.5;
-          position: relative;
-          transition: all 0.3s ease;
-        }
-        
-        .footer-link:hover {
-          color: #334155;
-        }
-        
-        .footer-link:hover::before {
-          transform: scaleX(1);
-        }
-        
-        .footer-link::before {
-          content: '';
-          position: absolute;
-          bottom: -2px;
-          left: 0;
-          width: 100%;
-          height: 1px;
-          background-color: #3b82f6;
-          transform: scaleX(0);
-          transform-origin: left;
-          transition: transform 0.3s ease;
-        }
-        
-        .brand-title {
-          font-size: 1.125rem;
-          font-weight: 600;
-          letter-spacing: -0.01em;
-          color: #1e293b;
-          line-height: 1.3;
-          margin-bottom: clamp(1rem, 2vw, 1.5rem);
-        }
-        
-        .brand-subtitle {
-          font-size: 0.9375rem;
-          font-weight: 400;
-          color: #64748b;
-          margin-bottom: 0.75rem;
-          letter-spacing: -0.01em;
-        }
-        
-        .brand-description {
-          font-size: 0.9375rem;
-          color: #64748b;
-          line-height: 1.6;
-          margin-bottom: 1.5rem;
-          max-width: 280px;
-        }
-        
-        .brand-location {
-          font-size: 0.875rem;
-          color: #94a3b8;
-          font-weight: 500;
-          letter-spacing: 0.025em;
-          text-transform: uppercase;
-        }
-        
-        .footer-divider {
-          width: 100%;
-          height: 1px;
-          background: linear-gradient(90deg, transparent 0%, #e2e8f0 20%, #e2e8f0 80%, transparent 100%);
-          margin: clamp(2rem, 4vw, 3rem) 0 clamp(1rem, 2vw, 1.5rem) 0;
-        }
-        
-        .footer-bottom {
-          text-align: center;
-          font-size: 0.875rem;
-          color: #94a3b8;
-          font-weight: 400;
-          letter-spacing: 0.01em;
-        }
-        
-        .footer-module {
-          position: relative;
-        }
-        
-        .footer-module::before {
-          content: '';
-          position: absolute;
-          top: -0.5rem;
-          left: 0;
-          width: 2rem;
-          height: 2px;
-          background: linear-gradient(90deg, #3b82f6, transparent);
-          opacity: 0;
-          transition: all 0.6s ease;
-        }
-        
-        .footer-module:hover::before {
-          opacity: 1;
-          width: 3rem;
-        }
-        
-        @media (max-width: 767px) {
-          .footer-grid {
-            text-align: center;
-          }
-          
-          .brand-description {
-            max-width: none;
-          }
-          
-          .footer-module::before {
-            left: 50%;
-            transform: translateX(-50%);
-          }
-        }
-      `}</style>
-
-      <footer className="footer-container">
+      <footer className="footer-container ">
         <div className="footer-inner">
           <div className="footer-grid">
             {/* Brand Module */}
@@ -249,7 +92,7 @@ export default function Footer() {
           </div>
 
           {/* Divider */}
-          <div className="footer-divider" />
+          <div className="footer-divider " />
 
           {/* Footer bottom */}
           <div className="footer-bottom">
