@@ -99,8 +99,8 @@ export default function Nav() {
           transition: 'all 0.5s ease-out'
         }}
       >
-        <div className="bg-slate-200 text-slate-900 text-sm text-center p-2">
-          <p className="mb-0">Dedicated to the Mental Health of Norfolk&apos;s Military Community <Link href="/services" className="underline font-semibold"> Learn More</Link></p>
+        <div className="bg-slate-200  text-slate-900 text-sm text-center p-2">
+          <p className="mb-0 ">Dedicated to the Mental Health of Norfolk&apos;s Military Community <Link href="/services" className="underline font-semibold text-indigo-500"> Learn More</Link></p>
         </div>
         <div className="container-fluid px-4 bg-slate-50 px-lg-5">
           <div className="row align-items-center py-3">
@@ -114,13 +114,13 @@ export default function Nav() {
                   style={{ maxWidth: '100%' }}
                 >
                   <div 
-                    className="bg-slate-900 text-white px-3 py-2 me-2 transition-all duration-300 flex-shrink-0"
+                    className=" text-dark px-3 py-2 me-2 transition-all duration-300 flex-shrink-0"
                     style={{ 
-                      backgroundColor: '#0f172a',
+                      
                       transition: 'all 0.3s ease'
                     }}
                   >
-                    <span className="text-sm fw-bold" style={{ letterSpacing: '-0.025em' }}>TLC</span>
+                    <span className="text-4xl fw-bold tomorrow" style={{ letterSpacing: '-0.025em' }}>TLC</span>
                   </div>
                   <div style={{ minWidth: 0 }}>
                     <span className="text-slate-900 fw-semibold d-block lh-1" style={{ fontSize: '1rem', color: '#0f172a', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
