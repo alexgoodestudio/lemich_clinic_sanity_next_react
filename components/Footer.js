@@ -76,7 +76,7 @@ export default function Footer() {
             {/* Clinic Statement */}
             <div className="col-lg-5 col-12 mb-5 mb-lg-0 d-flex justify-content-center align-items-center">
               <div className="text-center">
-                <h2 className="text-4xl gs font-bold mb-4 text-slate-100">
+                <h2 className="text-4xl gs font-bold mb-2 text-slate-100">
                   The Lemich Clinic
                 </h2>
                 <p className="text-xl tracking-wide text-slate-300">

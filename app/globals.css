@@ -277,6 +277,11 @@ body {
   backdrop-filter: blur(12px);
 }
 
+.nav-link:not(.text-slate-900):hover {
+  background-color: rgba(30, 41, 59, 0.6) !important;
+  color: #e2e8f0 !important;
+}
+
 .contact-btn:hover {
   background-color: #0f172a !important;
   color: #ffffff !important;
@@ -286,6 +291,88 @@ body {
 .contact-btn:hover .me-2 + svg {
   transform: translateX(0.25rem);
 }
+
+/* Hero Call Button Color Options - Uncomment your preferred option */
+
+/* OPTION 1: Coral Orange - Highest Conversion (32.5% increase in healthcare) */
+/* Energizing, approachable, reduces mental health stigma */
+/* .hero-call-btn {
+  background-color: #FF6B4A !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+.hero-call-btn:hover {
+  background-color: #E55539 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(255, 107, 74, 0.4) !important;
+} */
+
+/* OPTION 2: Military Navy Blue - Trust & Authority */
+/* Aligns with military branding (VA, TRICARE), professional, trustworthy */
+/* .hero-call-btn {
+  background-color: #003D82 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+.hero-call-btn:hover {
+  background-color: #002A5C !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 61, 130, 0.4) !important;
+} */
+
+/* OPTION 3: Warm Amber - Balanced Urgency (ACTIVE) */
+/* Combines trust (yellow) with action (orange), accessible contrast */
+/* .hero-call-btn {
+  background-color: #F59E0B !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+.hero-call-btn:hover {
+  background-color: #D97706 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4) !important;
+} */
+
+/* OPTION 4: Soft Teal - Calm & Healthcare */
+/* Reduces anxiety, healthcare association, professional */
+.hero-call-btn {
+  background-color: #14b8a6 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+.hero-call-btn:hover {
+  background-color: #0d9488 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.4) !important;
+}
+
+/* OPTION 5: Sage Green - Healing & Military Familiarity */
+/* Military color palette, healing association, reduces stigma */
+/* .hero-call-btn {
+  background-color: #059669 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+.hero-call-btn:hover {
+  background-color: #047857 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.4) !important;
+} */
 
 /* Typography Scale */
 .text-16xl { font-size: 18rem; line-height: 1.05; }

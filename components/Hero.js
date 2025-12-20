@@ -58,7 +58,7 @@ export default function Hero() {
       })
     }
 
-    const interval = setInterval(slideAnimation, 5000)
+    const interval = setInterval(slideAnimation, 4400)
     return () => clearInterval(interval)
   }, [])
 
@@ -85,11 +85,11 @@ export default function Hero() {
             active duty, veterans and families.
           </p>
 
-          <div className="d-flex">
-            <a href="tel:+17575361233" className="btn btn-dark rounded px-lg-5 py-lg-3 px-4 py-2 me-3" aria-label="Call The Lemich Clinic">
+          <div className="d-flex gap-3">
+            <a href="tel:+17575361233" className="btn rounded py-lg-3 py-2 hero-call-btn" style={{ minWidth: '150px' }} aria-label="Call The Lemich Clinic">
               Call Us
             </a>
-            <a href="/contact" className="btn btn-outline-secondary rounded px-lg-5 py-lg-3 px-4 py-2" aria-label="Contact and location">
+            <a href="/contact" className="btn btn-outline-secondary rounded py-lg-3 py-2" style={{ minWidth: '150px' }} aria-label="Contact and location">
               Contact Us
             </a>
           </div>

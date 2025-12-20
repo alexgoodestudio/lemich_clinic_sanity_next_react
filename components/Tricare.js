@@ -45,7 +45,7 @@ export default function Tricare() {
   return (
     <section 
       ref={sectionRef}
-      className="bg-neutral-400 text-white tricare-section"
+      className="bg-neutral-500 text-white tricare-section"
       aria-labelledby="tricare-heading"
     >
       <div className="container px-5 px-lg-0">
@@ -56,7 +56,7 @@ export default function Tricare() {
                 id="tricare-heading"
                 className="text-4xl tomorrow font-bold mb-4 tricare-animate"
               >
-                TRICARE <span className="text-neutral-800">ACCEPTED</span>
+                TRICARE <span className="">ACCEPTED</span>
               </h2>
               
               <p className="text-xl mb-4 tricare-animate">
