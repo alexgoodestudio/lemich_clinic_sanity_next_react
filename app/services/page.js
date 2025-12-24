@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { FileText, Group, History } from "lucide-react";
+import { FileText, Group, History, Target } from "lucide-react";
 
 export default function Services() {
   useEffect(() => { 
@@ -14,7 +14,7 @@ export default function Services() {
     <>
       <Nav />
       <div className="d-flex flex-column bg-slate-50 px-lg-5">
-        <div className="container-fluid px-3 px-md-5 py-5 flex-grow-1">
+        <div className="container-fluid px-4 px-md-5 px-lg-6 py-5 flex-grow-1">
           <div className="row mb-3">
             <div className="col-12">
               <h1 className="text-4xl mb-4 barlow text-start text-gray-800">
@@ -40,7 +40,7 @@ export default function Services() {
               <div className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full text-start transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg card-animate">
                 <img
                   src="/images/1.avif"
-                  className="card-img-top object-cover w-full h-48"
+                  className="card-img-top object-cover w-full h-64"
                   alt="Nexus & Summary Letters"
                 />
                 <div className="card-body p-5 flex-grow-1">
@@ -64,7 +64,7 @@ export default function Services() {
               <div className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full text-start transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg card-animate">
                 <img
                   src="/images/2.avif"
-                  className="card-img-top object-cover w-full h-48"
+                  className="card-img-top object-cover w-full h-64"
                   alt="Testing and Evaluations"
                 />
                 <div className="card-body p-5 flex-grow-1">
@@ -86,7 +86,7 @@ export default function Services() {
               <div className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full text-start transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg card-animate">
                 <img
                   src="/images/3.avif"
-                  className="card-img-top object-cover w-full h-48"
+                  className="card-img-top object-cover w-full h-64"
                   alt="Group Therapy"
                 />
                 <div className="card-body p-5 flex-grow-1">
@@ -114,6 +114,25 @@ export default function Services() {
                       Thursday @ 5:30pm - 7pm
                     </li>
                   </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4 - Life Coaching */}
+            <div className="col-lg-4 col-md-6 mb-4">
+              <div className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full text-start transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg card-animate">
+                <img
+                  src="/images/office1.avif"
+                  className="card-img-top object-cover w-full h-64"
+                  alt="Life Coaching"
+                />
+                <div className="card-body p-5 flex-grow-1">
+                  <h3 className="flex items-center gap-2 text-lg font-semibold text-gray-800 mb-2">
+                    <Target size={18} /> Life Coaching
+                  </h3>
+                  <p className="text-[15px] sm:text-[16px] leading-relaxed text-gray-600">
+                    Life Coaching helps clients identify personal and professional goals that do not fall under mental health or medical care providers.
+                  </p>
                 </div>
               </div>
             </div>

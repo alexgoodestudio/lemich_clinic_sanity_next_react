@@ -345,8 +345,6 @@ body {
 /* OPTION 4: Soft Teal - Calm & Healthcare */
 /* Reduces anxiety, healthcare association, professional */
 .hero-call-btn {
-  background-color: #14b8a6 !important;
-  color: #ffffff !important;
   font-weight: 600 !important;
   border: none !important;
   transition: all 0.3s ease !important;

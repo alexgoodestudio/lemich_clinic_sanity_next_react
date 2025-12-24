@@ -86,7 +86,7 @@ export default function Hero() {
           </p>
 
           <div className="d-flex gap-3">
-            <a href="tel:+17575361233" className="btn rounded py-lg-3 py-2 hero-call-btn" style={{ minWidth: '150px' }} aria-label="Call The Lemich Clinic">
+            <a href="tel:+17575361233" className="btn rounded py-lg-3 py-2 btn-primary" style={{ minWidth: '150px' }} aria-label="Call The Lemich Clinic">
               Call Us
             </a>
             <a href="/contact" className="btn btn-outline-secondary rounded py-lg-3 py-2" style={{ minWidth: '150px' }} aria-label="Contact and location">

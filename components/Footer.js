@@ -74,9 +74,9 @@ export default function Footer() {
           <div className="row mb-5 pb-5 border-bottom border-slate-700">
 
             {/* Clinic Statement */}
-            <div className="col-lg-5 col-12 mb-5 mb-lg-0 d-flex justify-content-center align-items-center">
-              <div className="text-center">
-                <h2 className="text-4xl gs font-bold mb-2 text-slate-100">
+            <div className="col-lg-5 col-12 mb-5 mb-lg-0 d-flex ps-lg-5">
+              <div className="text-start">
+                <h2 className="text-4xl tomorrow font-bold mb-2 text-slate-100">
                   The Lemich Clinic
                 </h2>
                 <p className="text-xl tracking-wide text-slate-300">

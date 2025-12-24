@@ -89,8 +89,8 @@ export default function ServiceCards() {
       ref={sectionRef}
       className="py-24 md:py-32 bg-stone-50"
     >
-      <div className="container mx-auto px-4 max-w-7xl">
-        
+      <div className="px-5">
+
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <h2 className="text-4xl tomorrow font-semibold text-slate-900 mb-6 leading-tight">
