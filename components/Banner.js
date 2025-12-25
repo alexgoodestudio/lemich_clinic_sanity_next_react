@@ -26,7 +26,7 @@ export default function Banner() {
 
     gsap.to(track, {
       x: -trackWidth,
-      duration: 60,
+      duration: 90,
       ease: 'none',
       repeat: -1,
       modifiers: {
@@ -49,7 +49,7 @@ export default function Banner() {
   return (
     <div 
       ref={containerRef}
-      className="overflow-hidden bg-slate-100 py-4"
+      className="overflow-hidden bg-slate-100 py-4 py-lg-5"
       role="marquee"
       aria-live="off"
     >
