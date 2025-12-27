@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ShieldCheck } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -52,13 +53,21 @@ export default function Tricare() {
         <div className="row justify-content-center">
           <div className="col-12 col-lg-10 col-xl-8">
             <div className="tricare-content">
-              <h2 
-                id="tricare-heading"
-                className="text-4xl tomorrow font-bold mb-4 tricare-animate"
-              >
-                TRICARE <span className="">ACCEPTED</span>
-              </h2>
-              
+              <div className="d-flex align-items-center mb-4 tricare-animate">
+                <div className="bg-white text-neutral-500 d-flex align-items-center justify-content-center me-2 me-lg-3 rounded d-block d-lg-none" style={{ width: '24px', height: '24px', padding: '2px' }}>
+                  <ShieldCheck size={20} strokeWidth={2.5} />
+                </div>
+                <div className="bg-white text-neutral-500 d-flex align-items-center justify-content-center me-lg-3 rounded d-none d-lg-block" style={{ width: '36px', height: '36px', padding: '4px' }}>
+                  <ShieldCheck size={28} strokeWidth={2.5} />
+                </div>
+                <h2
+                  id="tricare-heading"
+                  className="text-3xl text-lg-4xl tomorrow font-bold mb-0"
+                >
+                  TRICARE <span className="">ACCEPTED</span>
+                </h2>
+              </div>
+
               <p className="text-xl mb-4 tricare-animate">
                 Great news! We are in-network with TRICARE.
               </p>
