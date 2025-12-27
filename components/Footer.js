@@ -33,6 +33,18 @@ export default function Footer() {
         { label: "Contact Us", href: "/contact" },
         { label: "(757) 536-1233", href: "tel:17575361233" },
       ]
+    },
+    hours: {
+      title: "Hours",
+      items: [
+        "Mon: 8:00 AM - 4:30 PM",
+        "Tue: 8:00 AM - 4:30 PM",
+        "Wed: 8:00 AM - 4:30 PM",
+        "Thu: 8:00 AM - 4:30 PM",
+        "Fri: 8:00 AM - 4:30 PM",
+        "Sat: Closed",
+        "Sun: Closed"
+      ]
     }
   }
 
@@ -93,7 +105,7 @@ export default function Footer() {
               <div className="row">
 
                 {/* Services Links */}
-                <div className="col-md-4 text-start col-12 mb-4 mb-md-0">
+                <div className="col-md-3 text-start col-12 mb-4 mb-md-0">
                   <h6 className="text-lg font-mono font-semibold text-slate-400 uppercase tracking-wider mb-4">
                     {footerModules.services.title}
                   </h6>
@@ -105,7 +117,7 @@ export default function Footer() {
                 </div>
 
                 {/* About Links */}
-                <div className="col-md-4 text-start col-12 mb-4 mb-md-0">
+                <div className="col-md-3 text-start col-12 mb-4 mb-md-0">
                   <h6 className="text-lg font-mono font-semibold text-slate-400 uppercase tracking-wider mb-4">
                     {footerModules.about.title}
                   </h6>
@@ -117,13 +129,27 @@ export default function Footer() {
                 </div>
 
                 {/* Connect Links */}
-                <div className="col-md-4 text-start col-12">
+                <div className="col-md-3 text-start col-12 mb-4 mb-md-0">
                   <h6 className="text-lg font-mono font-semibold text-slate-400 uppercase tracking-wider mb-4">
                     {footerModules.contact.title}
                   </h6>
                   <ul className="list-unstyled">
                     {footerModules.contact.links.map((item) => (
                       <LinkItem key={item.label} item={item} />
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Clinic Hours */}
+                <div className="col-md-3 text-start col-12">
+                  <h6 className="text-lg font-mono font-semibold text-slate-400 uppercase tracking-wider mb-4">
+                    {footerModules.hours.title}
+                  </h6>
+                  <ul className="list-unstyled">
+                    {footerModules.hours.items.map((item, index) => (
+                      <li key={index} className={`text-md text-slate-300 ${item === "" ? "mb-3" : "mb-2"}`}>
+                        {item || <span>&nbsp;</span>}
+                      </li>
                     ))}
                   </ul>
                 </div>
