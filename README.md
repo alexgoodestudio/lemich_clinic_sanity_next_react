@@ -1,5 +1,6 @@
-# The Lemich Clinic -
-**LLemich Clinic:** [https://lemichclinic.netlify.app/](#)
+# The Lemich Clinic
+
+🔗 **Live site:** [https://lemichclinic.netlify.app/](https://lemichclinic.netlify.app/)
 
 Next.js Website
 
