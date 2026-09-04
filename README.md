@@ -1,4 +1,7 @@
-# The Lemich Clinic - Next.js Website
+# The Lemich Clinic -
+**LLemich Clinic:** [https://lemichclinic.netlify.app/](#)
+
+Next.js Website
 
 A military mental health clinic website built with Next.js, Sanity CMS, Bootstrap, and GSAP animations.
 
