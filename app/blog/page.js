@@ -30,8 +30,8 @@ const posts = await client.fetch(
 }
 
 export const metadata = {
-  title: 'Mental Health Resources & Insights | The Lemich Clinic Blog',
-  description: 'Expert guidance on military mental health, VA disability claims, PTSD treatment, and therapy for active duty service members and veterans in Norfolk, VA.',
+  title: 'Blog',
+  description: 'Guidance on military mental health, VA disability claims, PTSD treatment, and therapy for active duty service members and veterans.',
 };
 
 export default async function Blog() {

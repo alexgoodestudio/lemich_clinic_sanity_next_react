@@ -21,17 +21,14 @@ export default function Footer() {
     about: {
       title: "About",
       links: [
-        { label: "Our Team", href: "/team" },
         { label: "Clinic Owners", href: "/owners" },
-        { label: "Psychology Today", href: "https://www.psychologytoday.com/us/therapists/the-lemich-clinic-for-military-mental-health-norfolk-va/755325", external: true },
-        { label: "Facebook", href: "https://www.facebook.com/p/The-Lemich-Clinic-For-Military-Mental-Health-100086257112340/", external: true }
       ]
     },
     contact: {
       title: "Connect",
       links: [
         { label: "Contact Us", href: "/contact" },
-        { label: "(757) 536-1233", href: "tel:17575361233" },
+        { label: "(555) 018-2947", href: "tel:15550182947" },
       ]
     },
     hours: {
@@ -89,13 +86,10 @@ export default function Footer() {
             <div className="col-lg-5 col-12 mb-5 mb-lg-0 d-flex ps-lg-5">
               <div className="text-start">
                 <h2 className="text-4xl tomorrow font-bold mb-2 text-slate-100">
-                  The Lemich Clinic
+                  Compass Point Counseling
                 </h2>
                 <p className="text-xl tracking-wide text-slate-300">
                   Home of Military Mental Health
-                </p>
-                <p className="text-sm font-mono text-slate-400">
-                  Norfolk, Virginia
                 </p>
               </div>
             </div>
@@ -162,12 +156,12 @@ export default function Footer() {
           <div className="row align-items-center">
             <div className="col-md-6 col-12 mb-3 mb-md-0">
               <p className="text-sm text-slate-200 mb-0">
-                © {year} The Lemich Clinic — Norfolk, Virginia
+                © {year} Compass Point Counseling
               </p>
             </div>
             <div className="col-md-6 col-12 text-md-end">
               <a
-                href="mailto:info@lemichclinic.org"
+                href="mailto:hello@compasspointcounseling.example"
                 ref={emailRef}
                 className="text-sm mb-0 d-inline-block"
                 onMouseEnter={handleEmailHover}
@@ -181,7 +175,7 @@ export default function Footer() {
                   transition: 'border-bottom 0.3s ease'
                 }}
               >
-                info@lemichclinic.org
+                hello@compasspointcounseling.example
               </a>
             </div>
           </div>

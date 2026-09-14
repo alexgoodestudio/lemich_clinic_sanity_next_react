@@ -9,9 +9,9 @@ export default function Banner() {
   const trackRef = useRef(null)
   const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  const message = "The Lemich Clinic"
+  const message = "Compass Point Counseling"
   const description = "Home of Military Mental Health"
-  const location = "Located in Norfolk, Virginia"
+  const location = "Serving Active Duty & Veteran Families"
 
   useGSAP(() => {
     if (!trackRef.current || prefersReducedMotion) {

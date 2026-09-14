@@ -240,7 +240,7 @@ export default function Insurance() {
                           Quick Referral for Active Duty
                         </h4>
                         <p className="text-md text-slate-700 mb-4 lh-base max-width-readable">
-                          Can't see your PCM quickly? Active Duty personnel can visit the Care Connect station at the Behavioral Health Department (Building 3, NMCP) to meet with a Behavioral Health Technician for mental health counseling referrals.
+                          Can't see your PCM quickly? Active Duty personnel can visit the Care Connect station at the base Behavioral Health Department to meet with a Behavioral Health Technician for mental health counseling referrals.
                         </p>
                         <div className="flex items-center text-sm text-slate-600 mb-2">
                           <span className="font-semibold">
@@ -248,7 +248,7 @@ export default function Insurance() {
                           </span>
                         </div>
                         <p className="text-sm text-slate-600">
-                          After referral creation, call Tricare to update provider to The Lemich Clinic.
+                          After referral creation, call Tricare to update provider to Compass Point Counseling.
                         </p>
                       </div>
                     </div>

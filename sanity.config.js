@@ -5,7 +5,7 @@ import { schemaTypes } from './sanity/schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'Lemich Clinic CMS',
+  title: 'Compass Point Counseling CMS',
   
   projectId: 'm59qgyz0',
   dataset: 'production',

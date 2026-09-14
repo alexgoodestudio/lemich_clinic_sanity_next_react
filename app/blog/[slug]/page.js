@@ -39,11 +39,11 @@ export async function generateMetadata({ params }) {
   }
 
   const siteSettings = await getSiteSettings()
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lemichclinic.com'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://compass-point-counseling.example.com'
   const canonical = `${siteUrl}/blog/${post.slug?.current || slug}`
 
   const title = post.title
-  const description = post.description || siteSettings?.footerDescription || `${title} — Lemich Clinic`
+  const description = post.description || siteSettings?.footerDescription || `${title} — Compass Point Counseling`
   const publishedTime = post.date ? new Date(post.date).toISOString() : post._createdAt ? new Date(post._createdAt).toISOString() : undefined
   const modifiedTime = post._updatedAt ? new Date(post._updatedAt).toISOString() : undefined
 
@@ -60,13 +60,13 @@ export async function generateMetadata({ params }) {
       title,
       description,
       url: canonical,
-      siteName: siteSettings?.heroTitle || 'Lemich Clinic',
+      siteName: siteSettings?.heroTitle || 'Compass Point Counseling',
       images: [
         {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: post.title || 'Lemich Clinic blog image',
+          alt: post.title || 'Compass Point Counseling blog image',
         },
       ],
       type: 'article',

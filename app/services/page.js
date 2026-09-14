@@ -70,7 +70,7 @@ export default function Services() {
                     <History size={18} /> Testing and Evaluations
                   </h3>
                   <p className="text-base leading-relaxed text-gray-600">
-                    Full Psychological Evaluation We can assist you and your therapist through advanced psychological testing. At our location, we can assess for most psychological conditions including ADHD, PTSD, bipolar, personality disorders, and psychosis. During the assessment you will complete a historical interview followed by a series of psychological evaluations. Dr. Lemich will then meet with you to go over the results. After, he will meet with your therapist to advise on treatment. You can choose to receive a Clinical Summary, a Summary Letter, or a VA Disability Letter upon completion.
+                    Full Psychological Evaluation We can assist you and your therapist through advanced psychological testing. At our location, we can assess for most psychological conditions including ADHD, PTSD, bipolar, personality disorders, and psychosis. During the assessment you will complete a historical interview followed by a series of psychological evaluations. Dr. Reyes will then meet with you to go over the results. After, he will meet with your therapist to advise on treatment. You can choose to receive a Clinical Summary, a Summary Letter, or a VA Disability Letter upon completion.
                   </p>
                 </div>
               </div>
@@ -180,7 +180,7 @@ export default function Services() {
                 </h3>
                 <p className="text-base leading-relaxed text-slate-600" style={{ letterSpacing: '-0.01em' }}>
                   <strong>Full Psychological Evaluation</strong><br/>
-                  We can assist you and your therapist through advanced psychological testing. At our location, we can assess for most psychological conditions including ADHD, PTSD, bipolar, personality disorders, and psychosis. During the assessment you will complete a historical interview followed by a series of psychological evaluations. Dr. Lemich will then meet with you to go over the results. After, he will meet with your therapist to advise on treatment. You can choose to receive a Clinical Summary, a Summary Letter, or a VA Disability Letter upon completion.
+                  We can assist you and your therapist through advanced psychological testing. At our location, we can assess for most psychological conditions including ADHD, PTSD, bipolar, personality disorders, and psychosis. During the assessment you will complete a historical interview followed by a series of psychological evaluations. Dr. Reyes will then meet with you to go over the results. After, he will meet with your therapist to advise on treatment. You can choose to receive a Clinical Summary, a Summary Letter, or a VA Disability Letter upon completion.
                 </p>
               </div>
             </div>

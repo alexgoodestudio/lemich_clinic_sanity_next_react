@@ -34,7 +34,7 @@ export default defineType({
       title: 'Banner Location',
       type: 'string',
       description: 'Location text in banner',
-      initialValue: 'Located in Norfolk, Virginia',
+      initialValue: 'Serving Active Duty & Veteran Families',
     }),
     
     // Mission Statement
@@ -79,28 +79,28 @@ export default defineType({
       type: 'text',
       rows: 2,
       description: 'Brief description in footer',
-      initialValue: 'Specialized mental health care for military families and veterans in Norfolk, Virginia.',
+      initialValue: 'Specialized mental health care for military families and veterans.',
     }),
-    
+
     // Contact Information
     defineField({
       name: 'phone',
       title: 'Phone Number',
       type: 'string',
-      initialValue: '(757) 536-1233',
+      initialValue: '(555) 018-2947',
     }),
     defineField({
       name: 'email',
       title: 'Email Address',
       type: 'string',
-      initialValue: 'info@lemichclinic.org',
+      initialValue: 'hello@compasspointcounseling.example',
     }),
     defineField({
       name: 'address',
       title: 'Address',
       type: 'text',
       rows: 2,
-      initialValue: 'Norfolk, VA',
+      initialValue: '',
     }),
     
     // Social Links
@@ -120,7 +120,7 @@ export default defineType({
       name: 'crisisLine',
       title: 'Crisis Line Number',
       type: 'string',
-      initialValue: '1-800-273-8255',
+      initialValue: '988',
     }),
     defineField({
       name: 'crisisTextNumber',

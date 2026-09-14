@@ -94,7 +94,7 @@ export default function ContactForm() {
               Crisis Support Available 24/7:
             </p>
             <p className="text-slate-600 mb-1" style={{ fontSize: '0.875rem', lineHeight: '1.5' }}>
-              Military Crisis Line: <strong>1-800-273-8255</strong>
+              Military Crisis Line: <strong>988</strong> (press 1)
             </p>
             <p className="text-slate-600" style={{ fontSize: '0.875rem', lineHeight: '1.5' }}>
               Text: <strong>838255</strong>

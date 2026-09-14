@@ -124,12 +124,12 @@ export default function Mission() {
                 ref={textRef}
                 className="text-lg text-slate-600 leading-relaxed  mb-0"
               >
-                The Lemich Clinic for Military Mental Health was founded on
+                Compass Point Counseling for Military Mental Health was founded on
                 the belief that everyone who serves should have access to
                 high-quality, confidential mental health care. The majority
-                of our clients are active duty sailors at Naval Station
-                Norfolk. We also see service members from the other military
-                installations in Virginia. We also work with military
+                of our clients are active duty service members stationed
+                nearby. We also see service members from other military
+                installations in the region. We also work with military
                 spouses and recent veterans. If you are a first responder or
                 outside the military, contact us to see if you qualify for
                 our program.

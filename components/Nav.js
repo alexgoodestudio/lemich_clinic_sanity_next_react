@@ -20,7 +20,6 @@ export default function Nav() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/insurance", label: "Insurance" },
-    { href: "/team", label: "Team" },
     { href: "/services", label: "Services" },
     { href: "/owners", label: "Owners" },
     { href: "/blog", label: "Blog" }
@@ -100,7 +99,7 @@ export default function Nav() {
         }}
       >
         <div className="bg-slate-200  text-slate-900 text-sm text-center p-2">
-          <p className="mb-0 ">Dedicated to the Mental Health of Norfolk&apos;s Military Community <Link href="/services" className="underline font-semibold text-indigo-500"> Learn More</Link></p>
+          <p className="mb-0 ">Dedicated to the Mental Health of Our Military Community <Link href="/services" className="underline font-semibold text-indigo-500"> Learn More</Link></p>
         </div>
         <div className="container-fluid px-4 bg-slate-50 px-lg-5">
           <div className="row align-items-center py-3">
@@ -120,11 +119,11 @@ export default function Nav() {
                       transition: 'all 0.3s ease'
                     }}
                   >
-                    <span className="text-4xl fw-bold tomorrow" style={{ letterSpacing: '-0.025em' }}>TLC</span>
+                    <span className="text-4xl fw-bold tomorrow" style={{ letterSpacing: '-0.025em' }}>CPC</span>
                   </div>
                   <div style={{ minWidth: 0 }}>
                     <span className="text-slate-900 fw-semibold d-block lh-1" style={{ fontSize: '1rem', color: '#0f172a', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                      The Lemich Clinic
+                      Compass Point Counseling
                     </span>
                     <span className="text-slate-600 d-block lh-1 mt-1" style={{ fontSize: '0.75rem', color: '#64748b', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                       Military Mental Health
@@ -192,7 +191,7 @@ export default function Nav() {
                 {/* Emergency Contact */}
                 <div>
                   <a
-                    href="tel:1-800-273-8255"
+                    href="tel:988"
                     className="btn text-white text-decoration-none fw-semibold"
                     style={{ 
                       backgroundColor: '#dc2626',
@@ -284,7 +283,7 @@ export default function Nav() {
                 </Link>
                 
                 <a
-                  href="tel:1-800-273-8255"
+                  href="tel:988"
                   className="mobile-link btn w-100 py-3 text-decoration-none fw-semibold"
                   style={{ 
                     border: '1px solid #dc2626',
@@ -292,7 +291,7 @@ export default function Nav() {
                     backgroundColor: 'transparent'
                   }}
                 >
-                  Crisis Support: 1-800-273-8255
+                  Crisis Support: Call or Text 988
                 </a>
               </div>
 

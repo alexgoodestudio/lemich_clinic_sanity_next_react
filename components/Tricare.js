@@ -74,11 +74,11 @@ export default function Tricare() {
               
               <p className=" mb-5 tricare-animate tricare-instructions">
                 Active duty, please have your referral made to{' '}
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   className="text-white underline hover-link"
                 >
-                  The Lemich Clinic
+                  Compass Point Counseling
                 </Link>. Dependents and retirees, no referral is needed. Just make an appointment, and we&apos;ll take care of the rest.
               </p>
               

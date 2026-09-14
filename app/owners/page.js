@@ -48,15 +48,15 @@ export default function Owners() {
               <div className="position-relative p-4 p-lg-5">
                 <img
                   ref={logoRef}
-                  src="/images/owners-min.png"
-                  alt="Gregory and Jennifer Lemich, Owners"
+                  src="/images/owner-placeholder.svg"
+                  alt="Dr. Alan Reyes, Owner"
                   className="img-fluid w-100"
                   style={{ maxWidth: '450px' }}
                 />
                 {/* Editorial metadata */}
                 <div className="mt-4">
                   <p className="text-caption text-slate-500 mb-0">
-                    Norfolk, Virginia • Est. 2024
+                    Est. 2024
                   </p>
                 </div>
               </div>
@@ -65,11 +65,11 @@ export default function Owners() {
             {/* Content Module - Enhanced typography hierarchy */}
             <div className="col-lg-6">
               <div className="p-4 p-lg-5">
-                
+
                 {/* Metadata section */}
                 <div className="mb-4">
                   <p className="text-caption text-slate-500 uppercase tracking-wider mb-2">
-                    Founders & Clinical Directors
+                    Founder & Clinical Director
                   </p>
                   <div className="bg-slate-300" style={{ width: '60px', height: '2px' }}></div>
                 </div>
@@ -78,22 +78,22 @@ export default function Owners() {
                 <div ref={headingRef}>
                   <h1 className="text-5xl text-slate-900 font-light mb-4 lh-1 tomorrow">
                     Meet The
-                    <span className="d-block text-slate-700 font-normal">Owners</span>
+                    <span className="d-block text-slate-700 font-normal">Owner</span>
                   </h1>
                 </div>
 
                 {/* Enhanced content with reading rhythm */}
                 <div ref={textRef} className="max-width-readable">
                   <p className="text-lg text-slate-600 mb-4 lh-base">
-                    The Lemich Clinic was founded by Gregory and Jennifer Lemich.
-                    Jennifer is a 22-year US Navy retiree and current Navy employee.
-                    Gregory holds a PhD in Counselor Education and Supervision, and is
-                    an adjunct professor at Old Dominion University.
+                    Compass Point Counseling was founded by Dr. Alan Reyes.
+                    Alan holds a PhD in Counselor Education and Supervision and
+                    spent several years supporting service members and their
+                    families before opening this practice.
                   </p>
-                  
+
                   <p className="text-md text-slate-500 mb-5 lh-base">
-                    Together, they have been happily married for 9 years and live in
-                    Norfolk, Virginia, with their French Bulldog and two cats.
+                    This page, along with the rest of this site, is a fictional
+                    portfolio project and is not associated with any real clinic.
                   </p>
 
                   {/* Credentials module */}
@@ -101,27 +101,13 @@ export default function Owners() {
                     <div className="col-md-6">
                       <div className="border-start border-slate-300 ps-3">
                         <h3 className="text-base fw-semibold text-slate-800 mb-1 tomorrow">
-                          Jennifer Lemich
-                        </h3>
-                        <p className="text-sm text-slate-600 mb-1">
-                          US Navy Veteran (22 years)
-                        </p>
-                        <p className="text-xs text-slate-500 mb-0">
-                          Current Navy Employee
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="col-md-6">
-                      <div className="border-start border-slate-300 ps-3">
-                        <h3 className="text-base fw-semibold text-slate-800 mb-1 tomorrow">
-                          Gregory Lemich, PhD
+                          Dr. Alan Reyes, PhD
                         </h3>
                         <p className="text-sm text-slate-600 mb-1">
                           Counselor Education & Supervision
                         </p>
                         <p className="text-xs text-slate-500 mb-0">
-                          Adjunct Professor, ODU
+                          Founder & Clinical Director
                         </p>
                       </div>
                     </div>

@@ -46,7 +46,7 @@ export default {
       name: 'author',
       title: 'Author',
       type: 'string',
-      initialValue: 'The Lemich Clinic Team',
+      initialValue: 'Compass Point Counseling Team',
       validation: Rule => Rule.required()
     },
     {

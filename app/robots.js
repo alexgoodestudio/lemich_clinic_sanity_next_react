@@ -3,10 +3,9 @@ export default function robots() {
     rules: [
       {
         userAgent: '*',
-        allow: '/',
-        disallow: ['/studio/', '/api/'], // Block Sanity Studio from indexing
+        disallow: '/', // Portfolio project - not a real business, keep out of search indexes
       },
     ],
-    sitemap: 'https://lemich.netlify.app/sitemap.xml',
+    sitemap: 'https://compass-point-counseling.example.com/sitemap.xml',
   }
 }

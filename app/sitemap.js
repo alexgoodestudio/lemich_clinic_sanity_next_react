@@ -1,8 +1,8 @@
 import { client } from '@/lib/sanity'
 
 export default async function sitemap() {
-  const baseUrl = 'https://lemich.netlify.app'
-  
+  const baseUrl = 'https://compass-point-counseling.example.com'
+
   // Fetch all published blog posts from Sanity
   const blogPosts = await client.fetch(`
     *[_type == "blogPost" && !(_id in path("drafts.**"))] {
@@ -10,7 +10,7 @@ export default async function sitemap() {
       _updatedAt
     }
   `)
-  
+
   // Static pages
   const staticPages = [
     {
@@ -18,12 +18,6 @@ export default async function sitemap() {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
-    },
-    {
-      url: `${baseUrl}/team`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
     },
     {
       url: `${baseUrl}/services`,
@@ -56,7 +50,7 @@ export default async function sitemap() {
       priority: 0.9,
     },
   ]
-  
+
   // Dynamic blog post pages
   const blogPages = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug.current}`,
@@ -64,6 +58,6 @@ export default async function sitemap() {
     changeFrequency: 'weekly',
     priority: 0.7,
   }))
-  
+
   return [...staticPages, ...blogPages]
 }
