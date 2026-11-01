@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
+const MIN_SHOW_MS = 2000
 const MAX_WAIT_MS = 8000
 
 // Covers the page until every eagerly-loaded image has finished loading
@@ -23,7 +24,12 @@ export default function PageLoader() {
     )
 
     const timeout = new Promise((resolve) => setTimeout(resolve, MAX_WAIT_MS))
-    Promise.race([Promise.all(pending), timeout]).then(() => setReady(true))
+    const minimum = new Promise((resolve) => setTimeout(resolve, MIN_SHOW_MS))
+
+    // Show the loader for at least MIN_SHOW_MS, and until images load (or MAX_WAIT_MS)
+    Promise.all([Promise.race([Promise.all(pending), timeout]), minimum]).then(() =>
+      setReady(true)
+    )
   }, [])
 
   useEffect(() => {
