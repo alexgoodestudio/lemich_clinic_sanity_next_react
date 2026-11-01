@@ -50,8 +50,8 @@ export default function PageLoader() {
         flexDirection: 'column',
         gap: '1rem',
         color: '#0f172a',
-        fontWeight: 600,
-        letterSpacing: '0.05em',
+        fontWeight: 500,
+        fontSize: '1.25rem',
       }}
     >
       <style>{`
@@ -75,7 +75,7 @@ export default function PageLoader() {
         </g>
         <circle cx="36" cy="36" r="3" fill="#ffffff" stroke="#0f172a" strokeWidth="1.5" />
       </svg>
-      <span>Loading…</span>
+      <span className="tomorrow">Compass Point Counseling</span>
     </div>
   )
 }
