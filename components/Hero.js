@@ -58,7 +58,7 @@ export default function Hero() {
       })
     }
 
-    const interval = setInterval(slideAnimation, 4400)
+    const interval = setInterval(slideAnimation, 3650)
     return () => clearInterval(interval)
   }, [])
 
