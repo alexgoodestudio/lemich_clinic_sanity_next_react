@@ -11,6 +11,7 @@ export default function Footer() {
 
   useEffect(() => {
     console.log(`Compass Point Counseling ${year}`)
+    console.log('testing 123')
   }, [year])
 
   const footerModules = {

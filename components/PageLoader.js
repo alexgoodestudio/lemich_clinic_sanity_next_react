@@ -47,12 +47,35 @@ export default function PageLoader() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        flexDirection: 'column',
+        gap: '1rem',
         color: '#0f172a',
         fontWeight: 600,
         letterSpacing: '0.05em',
       }}
     >
-      Loading…
+      <style>{`
+        @keyframes cpc-needle-spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
+      {/* Compass dial with a spinning needle */}
+      <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+        <circle cx="36" cy="36" r="32" fill="none" stroke="#b5cde7" strokeWidth="3" />
+        <g stroke="#0f172a" strokeWidth="2" strokeLinecap="round">
+          <line x1="36" y1="4" x2="36" y2="10" />
+          <line x1="36" y1="62" x2="36" y2="68" />
+          <line x1="4" y1="36" x2="10" y2="36" />
+          <line x1="62" y1="36" x2="68" y2="36" />
+        </g>
+        <g style={{ transformOrigin: '36px 36px', animation: 'cpc-needle-spin 1.6s cubic-bezier(0.65, 0, 0.35, 1) infinite' }}>
+          <polygon points="36,14 41,36 31,36" fill="#0f172a" />
+          <polygon points="36,58 41,36 31,36" fill="#b5cde7" />
+        </g>
+        <circle cx="36" cy="36" r="3" fill="#ffffff" stroke="#0f172a" strokeWidth="1.5" />
+      </svg>
+      <span>Loading…</span>
     </div>
   )
 }
