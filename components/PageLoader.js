@@ -48,7 +48,7 @@ export default function PageLoader() {
       style={{
         position: 'fixed',
         inset: 0,
-        zIndex: 9999,
+        zIndex: 1000, // below the nav (1050) so it stays visible while loading
         backgroundColor: '#ffffff',
         display: 'flex',
         alignItems: 'center',
