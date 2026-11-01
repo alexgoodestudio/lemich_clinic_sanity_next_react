@@ -1,13 +1,17 @@
 'use client'
 
 import Link from 'next/link'
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ArrowUpRight } from 'lucide-react'
 
 export default function Footer() {
   const year = new Date().getFullYear()
   const emailRef = useRef(null)
+
+  useEffect(() => {
+    console.log(`Compass Point Counseling ${year}`)
+  }, [year])
 
   const footerModules = {
     services: {

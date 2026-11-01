@@ -136,7 +136,8 @@ export default function BlogClient({ blogPosts }) {
                               {displayDate ? new Date(displayDate).toLocaleDateString('en-US', { 
                                 year: 'numeric', 
                                 month: 'long', 
-                                day: 'numeric' 
+                                day: 'numeric',
+                    timeZone: 'UTC'
                               }) : 'Date not available'}
                             </time>
                           </div>
