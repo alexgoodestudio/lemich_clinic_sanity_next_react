@@ -1,5 +1,6 @@
 import './globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import PageLoader from '@/components/PageLoader'
 
 export const metadata = {
   metadataBase: new URL('https://compass-point-counseling.example.com'),
@@ -43,8 +44,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        {/* Saluting face emoji by Twemoji (CC-BY 4.0) https://github.com/jdecked/twemoji */}
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
         {/* Bootstrap Icons */}
         <link
@@ -69,6 +70,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <PageLoader />
         {children}
         
         {/* Bootstrap JS */}
