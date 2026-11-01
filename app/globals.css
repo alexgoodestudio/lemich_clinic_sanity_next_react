@@ -152,7 +152,7 @@ body {
 
 .tricare-instructions {
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
+  color: #d4d4d4; /* neutral-300, matches footer body text */
 }
 
 .hover-link {

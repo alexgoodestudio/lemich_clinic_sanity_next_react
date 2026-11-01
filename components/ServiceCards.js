@@ -13,26 +13,22 @@ const services = [
   {
     Icon: User,
     title: "Personalized Care",
-    description: "Matched with a therapist that fits your needs and style. We take the time to understand you to make the right pairing.",
-    featured: true
+    description: "Matched with a therapist that fits your needs and style. We take the time to understand you to make the right pairing."
   },
   {
     Icon: Layers,
     title: "Comprehensive Specialties",
-    description: "Large variety of clinician expertise including trauma, PTSD, depression, anxiety, OCD, and perinatal concerns.",
-    featured: false
+    description: "Large variety of clinician expertise including trauma, PTSD, depression, anxiety, OCD, and perinatal concerns."
   },
   {
     Icon: Flag,
     title: "Military-Focused",
-    description: "Specialized in active duty concerns: PCS transitions, deployment support, and civilian life adjustments.",
-    featured: false
+    description: "Specialized in active duty concerns: PCS transitions, deployment support, and civilian life adjustments."
   },
   {
     Icon: FileText,
     title: "Administrative Support",
-    description: "Expert assistance with LIMDU, Med Board, Nexus Letters, Summary Letters, and Security Clearance paperwork when medically necessary.",
-    featured: false
+    description: "Expert assistance with LIMDU, Med Board, Nexus Letters, Summary Letters, and Security Clearance paperwork when medically necessary."
   }
 ]
 
@@ -72,36 +68,20 @@ export default function ServiceCards() {
           </p>
         </div>
 
-        {/* Desktop: Bento Grid */}
-        <div 
-          className="hidden md:grid grid-cols-12 gap-6 lg:gap-8"
-        >
-          {/* Featured Card - Spans 2 columns, 2 rows */}
-          <div className="service-card col-span-6 row-span-2 bg-white border border-stone-200 rounded-lg p-8 hover:shadow-lg transition-shadow duration-300">
-            <div className="mb-6">
-              <User className="w-12 h-12 text-slate-700" strokeWidth={1.5} />
-            </div>
-            <h3 className="text-2xl font-semibold text-slate-900 mb-4">
-              {services[0].title}
-            </h3>
-            <p className="text-base text-slate-600 leading-relaxed">
-              {services[0].description}
-            </p>
-          </div>
-
-          {/* Standard Cards */}
-          {services.slice(1).map((service, index) => (
-            <div 
-              key={index + 1}
-              className="service-card col-span-6 bg-white border border-stone-200 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
+        {/* Desktop: uniform grid, 2 columns on tablet and 4 on wide screens */}
+        <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+          {services.map((service) => (
+            <div
+              key={service.title}
+              className="service-card flex flex-col h-full bg-white border border-stone-200 rounded-lg p-8 hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="mb-4">
-                <service.Icon className="w-10 h-10 text-slate-700" strokeWidth={1.5} />
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-md bg-slate-900 text-white mb-6">
+                <service.Icon className="w-7 h-7" strokeWidth={1.5} />
               </div>
               <h3 className="text-xl font-semibold text-slate-900 mb-3">
                 {service.title}
               </h3>
-              <p className="text-base text-slate-600 leading-relaxed">
+              <p className="text-base text-slate-600 leading-relaxed mb-0">
                 {service.description}
               </p>
             </div>

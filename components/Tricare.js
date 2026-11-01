@@ -9,7 +9,7 @@ export default function Tricare() {
   return (
     <section 
       ref={sectionRef}
-      className="bg-neutral-500 text-white tricare-section"
+      className="bg-black text-neutral-100 tricare-section"
       aria-labelledby="tricare-heading"
     >
       <div className="container px-5 px-lg-0">
@@ -17,10 +17,10 @@ export default function Tricare() {
           <div className="col-12 col-lg-10 col-xl-8">
             <div className="tricare-content">
               <div className="d-flex align-items-center mb-4">
-                <div className="bg-white text-neutral-500 d-flex align-items-center justify-content-center me-2 me-lg-3 rounded d-block d-lg-none" style={{ width: '24px', height: '24px', padding: '2px' }}>
+                <div className="bg-white text-black d-flex align-items-center justify-content-center me-2 me-lg-3 rounded d-block d-lg-none" style={{ width: '24px', height: '24px', padding: '2px' }}>
                   <ShieldCheck size={20} strokeWidth={2.5} />
                 </div>
-                <div className="bg-white text-neutral-500 d-flex align-items-center justify-content-center me-lg-3 rounded d-none d-lg-block" style={{ width: '36px', height: '36px', padding: '4px' }}>
+                <div className="bg-white text-black d-flex align-items-center justify-content-center me-lg-3 rounded d-none d-lg-block" style={{ width: '36px', height: '36px', padding: '4px' }}>
                   <ShieldCheck size={28} strokeWidth={2.5} />
                 </div>
                 <h2
@@ -31,7 +31,7 @@ export default function Tricare() {
                 </h2>
               </div>
 
-              <p className="text-xl mb-4">
+              <p className="text-xl mb-4 text-neutral-100">
                 Great news! We are in-network with TRICARE.
               </p>
               

@@ -70,7 +70,7 @@ export default function Footer() {
     <li className="mb-3">
       <Link
         href={item.href}
-        className="text-md text-slate-300 hover:text-slate-100 text-decoration-none d-inline-flex align-items-center gap-2 transition-colors"
+        className="text-md text-neutral-300 hover:text-neutral-100 text-decoration-none d-inline-flex align-items-center gap-2 transition-colors"
         {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         {item.label}
@@ -81,19 +81,19 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="bg-slate-900 text-slate-100 pt-32 pb-8">
+      <footer className="bg-black text-neutral-100 pt-32 pb-8">
         <div className="container-fluid px-4 px-lg-5">
 
           {/* Primary Content Grid */}
-          <div className="row mb-5 pb-5 border-bottom border-slate-700">
+          <div className="row mb-5 pb-5 border-bottom border-neutral-800">
 
             {/* Clinic Statement */}
             <div className="col-lg-5 col-12 mb-5 mb-lg-0 d-flex ps-lg-5">
               <div className="text-start">
-                <h2 className="text-4xl tomorrow font-bold mb-2 text-slate-100">
+                <h2 className="text-4xl tomorrow font-bold mb-2 text-neutral-100">
                   Compass Point Counseling
                 </h2>
-                <p className="text-xl tracking-wide text-slate-300">
+                <p className="text-xl tracking-wide text-neutral-300">
                   Home of Military Mental Health
                 </p>
               </div>
@@ -105,7 +105,7 @@ export default function Footer() {
 
                 {/* Services Links */}
                 <div className="col-md-3 text-start col-12 mb-4 mb-md-0">
-                  <h6 className="text-lg font-mono font-semibold text-slate-400 uppercase tracking-wider mb-4">
+                  <h6 className="text-lg font-mono font-semibold text-neutral-400 uppercase tracking-wider mb-4">
                     {footerModules.services.title}
                   </h6>
                   <ul className="list-unstyled">
@@ -117,7 +117,7 @@ export default function Footer() {
 
                 {/* About Links */}
                 <div className="col-md-3 text-start col-12 mb-4 mb-md-0">
-                  <h6 className="text-lg font-mono font-semibold text-slate-400 uppercase tracking-wider mb-4">
+                  <h6 className="text-lg font-mono font-semibold text-neutral-400 uppercase tracking-wider mb-4">
                     {footerModules.about.title}
                   </h6>
                   <ul className="list-unstyled">
@@ -129,7 +129,7 @@ export default function Footer() {
 
                 {/* Connect Links */}
                 <div className="col-md-3 text-start col-12 mb-4 mb-md-0">
-                  <h6 className="text-lg font-mono font-semibold text-slate-400 uppercase tracking-wider mb-4">
+                  <h6 className="text-lg font-mono font-semibold text-neutral-400 uppercase tracking-wider mb-4">
                     {footerModules.contact.title}
                   </h6>
                   <ul className="list-unstyled">
@@ -141,12 +141,12 @@ export default function Footer() {
 
                 {/* Clinic Hours */}
                 <div className="col-md-3 text-start col-12">
-                  <h6 className="text-lg font-mono font-semibold text-slate-400 uppercase tracking-wider mb-4">
+                  <h6 className="text-lg font-mono font-semibold text-neutral-400 uppercase tracking-wider mb-4">
                     {footerModules.hours.title}
                   </h6>
                   <ul className="list-unstyled">
                     {footerModules.hours.items.map((item, index) => (
-                      <li key={index} className={`text-md text-slate-300 ${item === "" ? "mb-3" : "mb-2"}`}>
+                      <li key={index} className={`text-md text-neutral-300 ${item === "" ? "mb-3" : "mb-2"}`}>
                         {item || <span>&nbsp;</span>}
                       </li>
                     ))}
@@ -160,7 +160,7 @@ export default function Footer() {
           {/* Bottom Bar */}
           <div className="row align-items-center">
             <div className="col-md-6 col-12 mb-3 mb-md-0">
-              <p className="text-sm text-slate-200 mb-0">
+              <p className="text-sm text-neutral-200 mb-0">
                 © {year} Compass Point Counseling
               </p>
             </div>
