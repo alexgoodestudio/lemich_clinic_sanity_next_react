@@ -9,41 +9,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function Mission() {
   const containerRef = useRef(null)
-  const missionRef = useRef(null)
-  const textRef = useRef(null)
-  const accentRef = useRef(null)
   const statsRefs = useRef([])
 
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 70%",
-        end: "bottom 30%",
-        toggleActions: "play none none reverse"
-      }
-    })
-
-    // Animate "MISSION" text in
-    tl.fromTo(missionRef.current, 
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
-    )
-
-    // Animate paragraph text
-    tl.fromTo(textRef.current,
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
-      "-=0.4"
-    )
-
-    // Animate accent line
-    tl.fromTo(accentRef.current,
-      { width: "0%" },
-      { width: "100%", duration: 0.8, ease: "power2.out" },
-      "-=0.2"
-    )
-
     // Animate statistics counters
     const statsTimeline = gsap.timeline({
       scrollTrigger: {
@@ -99,7 +67,6 @@ export default function Mission() {
           <div className="col-lg-5 pe-lg-5 mb-4 mb-lg-0">
             <div className="position-relative">
               <div 
-                ref={missionRef}
                 className="text-5xl text-slate-900 font-bold leading-none"
                 style={{ fontFamily: 'var(--font-barlow)' }}
               >
@@ -110,7 +77,6 @@ export default function Mission() {
               
               {/* Accent line */}
               <div
-                ref={accentRef}
                 className="mission-accent-line mt-3"
                 style={{ backgroundColor: '#b5cde7' }}
               ></div>
@@ -121,7 +87,6 @@ export default function Mission() {
           <div className="col-lg-7 ps-lg-4">
             <div className="mission-text-container">
               <p 
-                ref={textRef}
                 className="text-lg text-slate-600 leading-relaxed  mb-0"
               >
                 Compass Point Counseling for Military Mental Health was founded on

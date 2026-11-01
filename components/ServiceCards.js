@@ -2,11 +2,7 @@
 
 import { useState, useRef } from "react"
 import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useGSAP } from "@gsap/react"
 import { User, Layers, Flag, FileText, ChevronDown } from "lucide-react"
-
-gsap.registerPlugin(ScrollTrigger)
 
 const MOTION = {
   smooth: 0.5,
@@ -42,32 +38,7 @@ const services = [
 
 export default function ServiceCards() {
   const [openIndex, setOpenIndex] = useState(null)
-  const gridRef = useRef(null)
   const sectionRef = useRef(null)
-
-  // Desktop: Staggered scroll reveal
-  useGSAP(() => {
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches
-
-    if (!prefersReducedMotion && window.innerWidth >= 768) {
-      const cards = gsap.utils.toArray('.service-card')
-      
-      gsap.from(cards, {
-        y: 40,
-        opacity: 0,
-        duration: MOTION.smooth,
-        ease: 'power2.out',
-        stagger: 0.12,
-        scrollTrigger: {
-          trigger: gridRef.current,
-          start: 'top 75%',
-          once: true
-        }
-      })
-    }
-  }, [])
 
   const toggleAccordion = (index) => {
     const isOpening = openIndex !== index
@@ -103,7 +74,6 @@ export default function ServiceCards() {
 
         {/* Desktop: Bento Grid */}
         <div 
-          ref={gridRef}
           className="hidden md:grid grid-cols-12 gap-6 lg:gap-8"
         >
           {/* Featured Card - Spans 2 columns, 2 rows */}
